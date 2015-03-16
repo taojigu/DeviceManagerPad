@@ -8,10 +8,11 @@
 
 #import "SwitchTableViewController.h"
 #import "AFHTTPRequestOperation.h"
-#import "PCellDataFormatter.h"
 #import "CoreDataAdaptor.h"
 #import "DeviceDetailViewController.h"
 #import "CoreDateTypeUtility.h"
+
+#import "SwitchCell.h"
 
 
 
@@ -80,21 +81,19 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString*cellIdentifer= @"SwitchCell";
+    
     if (indexPath.section==AddRowSection) {
         return  [self addDeviceCell:tableView indexPath:indexPath];
     }
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer forIndexPath:indexPath];
+    static NSString*cellIdentifer= @"SwitchCell";
+    SwitchCell *cell = (SwitchCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifer forIndexPath:indexPath];
     
 
-    if (AddRowSection==indexPath.section) {
-        cell.textLabel.text=@"Add Device";
-    }
-    else{
-        RemoteDevice*device=[self.devicArray objectAtIndex:indexPath.row];
-        cell.textLabel.text=device.name;
-    }
+  
+    RemoteDevice*device=[self.devicArray objectAtIndex:indexPath.row];
+    cell.titleLabel.text=device.name;
+    cell.subTitleLabel.text=[NSString stringWithFormat:@"%@:%@",device.deviceIP,device.port];
+    
 
     return cell;
 }
@@ -234,7 +233,7 @@
     
     [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, NSData* responseObject) {
         NSLog(@"Sucess:%@",responseObject);
-        [self.cellDataFormatter parse:responseObject];
+        //[self.cellDataFormatter parse:responseObject];
         [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

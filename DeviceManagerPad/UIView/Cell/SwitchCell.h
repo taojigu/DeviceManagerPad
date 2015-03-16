@@ -13,7 +13,8 @@
 }
 
 
-
+@property(nonatomic,strong)IBOutlet UILabel*titleLabel;
+@property(nonatomic,strong)IBOutlet UILabel*subTitleLabel;
 @property(nonatomic,strong)IBOutlet UIButton*powerOnButton;
 @property(nonatomic,strong)IBOutlet UIButton*powerOffButton;
 

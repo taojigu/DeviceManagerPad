@@ -21,10 +21,12 @@
 
 @synthesize powerOnButton;
 @synthesize powerOffButton;
-
+@synthesize titleLabel;
+@synthesize subTitleLabel;
 
 
 - (void)awakeFromNib {
+    
     // Initialization code
 }
 

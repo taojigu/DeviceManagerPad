@@ -7,7 +7,7 @@
 //
 
 #import "AsyncSocketController.h"
-#import "Device.h"
+
 #import "GCDAsyncSocket.h"
 
 @implementation AsyncSocketController

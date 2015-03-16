@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "DetailViewController.h"
 #import "GlobalNotification.h"
-#import "DeviceTableViewController.h"
 #import "AsyncSocketController.h"
 #import "GCDAsyncSocket.h"
 #import "MasterViewController.h"

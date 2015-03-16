@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		164311F51AB1356300DFEA7D /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 164311F41AB1356300DFEA7D /* Device.m */; };
-		164311F81AB13E4F00DFEA7D /* DeviceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 164311F71AB13E4F00DFEA7D /* DeviceParser.m */; };
 		164311FB1AB1415900DFEA7D /* AsyncSocketController.m in Sources */ = {isa = PBXBuildFile; fileRef = 164311FA1AB1415900DFEA7D /* AsyncSocketController.m */; };
 		164311FF1AB2EA0800DFEA7D /* CoreDataAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 164311FE1AB2EA0800DFEA7D /* CoreDataAdaptor.m */; };
 		164312031AB2F10200DFEA7D /* SocketDataConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 164312021AB2F10200DFEA7D /* SocketDataConverter.m */; };
@@ -39,18 +37,11 @@
 		1683C35F1AAC503E00C139CF /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3541AAC503E00C139CF /* AFURLRequestSerialization.m */; };
 		1683C3601AAC503E00C139CF /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3561AAC503E00C139CF /* AFURLResponseSerialization.m */; };
 		1683C3611AAC503E00C139CF /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3581AAC503E00C139CF /* AFURLSessionManager.m */; };
-		1683C3661AAC553200C139CF /* ClusterCellDataFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3651AAC553200C139CF /* ClusterCellDataFormatter.m */; };
 		1683C3691AAC575D00C139CF /* DataResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3681AAC575D00C139CF /* DataResult.m */; };
-		1683C36C1AAC577000C139CF /* Cluster.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C36B1AAC577000C139CF /* Cluster.m */; };
-		1683C36F1AAC57CF00C139CF /* Projection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C36E1AAC57CF00C139CF /* Projection.m */; };
-		1683C3721AAC57E400C139CF /* ClusterResultParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3711AAC57E400C139CF /* ClusterResultParser.m */; };
-		1683C3751AAC57F800C139CF /* ProjectionResultParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3741AAC57F800C139CF /* ProjectionResultParser.m */; };
-		1683C3781AAC58F000C139CF /* ProjectionCellDataFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3771AAC58F000C139CF /* ProjectionCellDataFormatter.m */; };
 		1683C37E1AAC6EE200C139CF /* UISwitch+IndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C37D1AAC6EE200C139CF /* UISwitch+IndexPath.m */; };
 		1683C3841AAC836400C139CF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3831AAC836400C139CF /* LoginViewController.m */; };
 		1683C38C1AAD87F200C139CF /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3891AAD87F200C139CF /* GCDAsyncSocket.m */; };
 		1683C38D1AAD87F200C139CF /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C38B1AAD87F200C139CF /* GCDAsyncUdpSocket.m */; };
-		1683C3901AAD89D500C139CF /* DeviceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C38F1AAD89D500C139CF /* DeviceTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,10 +55,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		164311F31AB1356300DFEA7D /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Device.h; path = Model/Device.h; sourceTree = "<group>"; };
-		164311F41AB1356300DFEA7D /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Device.m; path = Model/Device.m; sourceTree = "<group>"; };
-		164311F61AB13E4F00DFEA7D /* DeviceParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeviceParser.h; path = Model/DeviceParser.h; sourceTree = "<group>"; };
-		164311F71AB13E4F00DFEA7D /* DeviceParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceParser.m; path = Model/DeviceParser.m; sourceTree = "<group>"; };
 		164311F91AB1415900DFEA7D /* AsyncSocketController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocketController.h; path = Util/GCDSocket/AsyncSocketController.h; sourceTree = "<group>"; };
 		164311FA1AB1415900DFEA7D /* AsyncSocketController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocketController.m; path = Util/GCDSocket/AsyncSocketController.m; sourceTree = "<group>"; };
 		164311FD1AB2EA0800DFEA7D /* CoreDataAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataAdaptor.h; path = Model/DB/CoreDataAdaptor.h; sourceTree = "<group>"; };
@@ -127,21 +114,8 @@
 		1683C3561AAC503E00C139CF /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = Util/AFNetwork/AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		1683C3571AAC503E00C139CF /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = Util/AFNetwork/AFURLSessionManager.h; sourceTree = "<group>"; };
 		1683C3581AAC503E00C139CF /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = Util/AFNetwork/AFURLSessionManager.m; sourceTree = "<group>"; };
-		1683C3631AAC51F500C139CF /* PCellDataFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PCellDataFormatter.h; path = Model/PCellDataFormatter.h; sourceTree = "<group>"; };
-		1683C3641AAC553200C139CF /* ClusterCellDataFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClusterCellDataFormatter.h; path = Model/ClusterCellDataFormatter.h; sourceTree = "<group>"; };
-		1683C3651AAC553200C139CF /* ClusterCellDataFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClusterCellDataFormatter.m; path = Model/ClusterCellDataFormatter.m; sourceTree = "<group>"; };
 		1683C3671AAC575D00C139CF /* DataResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataResult.h; path = Model/DataResult.h; sourceTree = "<group>"; };
 		1683C3681AAC575D00C139CF /* DataResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataResult.m; path = Model/DataResult.m; sourceTree = "<group>"; };
-		1683C36A1AAC577000C139CF /* Cluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cluster.h; path = Model/Cluster.h; sourceTree = "<group>"; };
-		1683C36B1AAC577000C139CF /* Cluster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cluster.m; path = Model/Cluster.m; sourceTree = "<group>"; };
-		1683C36D1AAC57CF00C139CF /* Projection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Projection.h; path = Model/Projection.h; sourceTree = "<group>"; };
-		1683C36E1AAC57CF00C139CF /* Projection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Projection.m; path = Model/Projection.m; sourceTree = "<group>"; };
-		1683C3701AAC57E400C139CF /* ClusterResultParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClusterResultParser.h; path = Model/ClusterResultParser.h; sourceTree = "<group>"; };
-		1683C3711AAC57E400C139CF /* ClusterResultParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClusterResultParser.m; path = Model/ClusterResultParser.m; sourceTree = "<group>"; };
-		1683C3731AAC57F800C139CF /* ProjectionResultParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectionResultParser.h; path = Model/ProjectionResultParser.h; sourceTree = "<group>"; };
-		1683C3741AAC57F800C139CF /* ProjectionResultParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectionResultParser.m; path = Model/ProjectionResultParser.m; sourceTree = "<group>"; };
-		1683C3761AAC58F000C139CF /* ProjectionCellDataFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectionCellDataFormatter.h; path = Model/ProjectionCellDataFormatter.h; sourceTree = "<group>"; };
-		1683C3771AAC58F000C139CF /* ProjectionCellDataFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectionCellDataFormatter.m; path = Model/ProjectionCellDataFormatter.m; sourceTree = "<group>"; };
 		1683C37C1AAC6EE200C139CF /* UISwitch+IndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UISwitch+IndexPath.h"; path = "UIView/UISwitch+IndexPath.h"; sourceTree = "<group>"; };
 		1683C37D1AAC6EE200C139CF /* UISwitch+IndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UISwitch+IndexPath.m"; path = "UIView/UISwitch+IndexPath.m"; sourceTree = "<group>"; };
 		1683C3821AAC836400C139CF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ViewController/LoginViewController.h; sourceTree = "<group>"; };
@@ -151,8 +125,6 @@
 		1683C3891AAD87F200C139CF /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncSocket.m; path = Util/GCDSocket/GCDAsyncSocket.m; sourceTree = "<group>"; };
 		1683C38A1AAD87F200C139CF /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncUdpSocket.h; path = Util/GCDSocket/GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		1683C38B1AAD87F200C139CF /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncUdpSocket.m; path = Util/GCDSocket/GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
-		1683C38E1AAD89D500C139CF /* DeviceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeviceTableViewController.h; path = ViewController/DeviceTableViewController.h; sourceTree = "<group>"; };
-		1683C38F1AAD89D500C139CF /* DeviceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceTableViewController.m; path = ViewController/DeviceTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,8 +254,6 @@
 				1683C3411AAC49FC00C139CF /* SwitchTableViewController.m */,
 				1683C3821AAC836400C139CF /* LoginViewController.h */,
 				1683C3831AAC836400C139CF /* LoginViewController.m */,
-				1683C38E1AAD89D500C139CF /* DeviceTableViewController.h */,
-				1683C38F1AAD89D500C139CF /* DeviceTableViewController.m */,
 				164312101AB591CD00DFEA7D /* DeviceDetailViewController.h */,
 				164312111AB591CD00DFEA7D /* DeviceDetailViewController.m */,
 			);
@@ -330,35 +300,10 @@
 			isa = PBXGroup;
 			children = (
 				164311FC1AB2E9CE00DFEA7D /* DB */,
-				1683C3791AAC6BE600C139CF /* CellDataFormatter */,
 				1683C3671AAC575D00C139CF /* DataResult.h */,
 				1683C3681AAC575D00C139CF /* DataResult.m */,
-				1683C36A1AAC577000C139CF /* Cluster.h */,
-				1683C36B1AAC577000C139CF /* Cluster.m */,
-				1683C36D1AAC57CF00C139CF /* Projection.h */,
-				1683C36E1AAC57CF00C139CF /* Projection.m */,
-				1683C3701AAC57E400C139CF /* ClusterResultParser.h */,
-				1683C3711AAC57E400C139CF /* ClusterResultParser.m */,
-				1683C3731AAC57F800C139CF /* ProjectionResultParser.h */,
-				1683C3741AAC57F800C139CF /* ProjectionResultParser.m */,
-				164311F31AB1356300DFEA7D /* Device.h */,
-				164311F41AB1356300DFEA7D /* Device.m */,
-				164311F61AB13E4F00DFEA7D /* DeviceParser.h */,
-				164311F71AB13E4F00DFEA7D /* DeviceParser.m */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		1683C3791AAC6BE600C139CF /* CellDataFormatter */ = {
-			isa = PBXGroup;
-			children = (
-				1683C3631AAC51F500C139CF /* PCellDataFormatter.h */,
-				1683C3641AAC553200C139CF /* ClusterCellDataFormatter.h */,
-				1683C3651AAC553200C139CF /* ClusterCellDataFormatter.m */,
-				1683C3761AAC58F000C139CF /* ProjectionCellDataFormatter.h */,
-				1683C3771AAC58F000C139CF /* ProjectionCellDataFormatter.m */,
-			);
-			name = CellDataFormatter;
 			sourceTree = "<group>";
 		};
 		1683C37B1AAC6EA000C139CF /* UIView */ = {
@@ -496,8 +441,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1683C3721AAC57E400C139CF /* ClusterResultParser.m in Sources */,
-				1683C3901AAD89D500C139CF /* DeviceTableViewController.m in Sources */,
 				1643120F1AB571B200DFEA7D /* RemoteDevice.m in Sources */,
 				1683C38D1AAD87F200C139CF /* GCDAsyncUdpSocket.m in Sources */,
 				1683C3691AAC575D00C139CF /* DataResult.m in Sources */,
@@ -507,9 +450,6 @@
 				164312061AB5615000DFEA7D /* UIControl+IndexPath.m in Sources */,
 				164312121AB591CD00DFEA7D /* DeviceDetailViewController.m in Sources */,
 				1643120C1AB571B100DFEA7D /* OperationLog.m in Sources */,
-				1683C3781AAC58F000C139CF /* ProjectionCellDataFormatter.m in Sources */,
-				1683C3661AAC553200C139CF /* ClusterCellDataFormatter.m in Sources */,
-				1683C36F1AAC57CF00C139CF /* Projection.m in Sources */,
 				1683C3151AAADE9300C139CF /* MasterViewController.m in Sources */,
 				1683C30F1AAADE9300C139CF /* main.m in Sources */,
 				1683C3601AAC503E00C139CF /* AFURLResponseSerialization.m in Sources */,
@@ -523,7 +463,6 @@
 				164312031AB2F10200DFEA7D /* SocketDataConverter.m in Sources */,
 				1683C3611AAC503E00C139CF /* AFURLSessionManager.m in Sources */,
 				1683C3181AAADE9300C139CF /* DetailViewController.m in Sources */,
-				164311F81AB13E4F00DFEA7D /* DeviceParser.m in Sources */,
 				1683C3421AAC49FC00C139CF /* SwitchTableViewController.m in Sources */,
 				1683C35B1AAC503E00C139CF /* AFHTTPSessionManager.m in Sources */,
 				164312161AB67DA000DFEA7D /* SwitchCell.m in Sources */,
@@ -531,10 +470,7 @@
 				1683C35C1AAC503E00C139CF /* AFNetworkReachabilityManager.m in Sources */,
 				164311FF1AB2EA0800DFEA7D /* CoreDataAdaptor.m in Sources */,
 				1683C35A1AAC503E00C139CF /* AFHTTPRequestOperationManager.m in Sources */,
-				1683C3751AAC57F800C139CF /* ProjectionResultParser.m in Sources */,
-				1683C36C1AAC577000C139CF /* Cluster.m in Sources */,
 				164312191AB6BB6700DFEA7D /* CoreDateTypeUtility.m in Sources */,
-				164311F51AB1356300DFEA7D /* Device.m in Sources */,
 				1683C37E1AAC6EE200C139CF /* UISwitch+IndexPath.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

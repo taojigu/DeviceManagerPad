@@ -13,8 +13,6 @@
 #import "StartViewController.h"
 #import "AsyncSocketController.h"
 
-#import "ClusterCellDataFormatter.h"
-#import "ProjectionCellDataFormatter.h"
 #import "CoreDataAdaptor.h"
 
 
@@ -56,20 +54,16 @@
     UINavigationController*navi=(UINavigationController*)segue.destinationViewController;
     if (1==indexPath.section&&0==indexPath.row) {
         SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
-        stvc.cellDataFormatter=[[ClusterCellDataFormatter alloc]init];
         stvc.deviceType=DeviceTypeCluster;
         return;
     }
     if (1==indexPath.section&&1==indexPath.row) {
         SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
-        stvc.cellDataFormatter=[[ProjectionCellDataFormatter alloc]init];
-        //stvc.urlString=@"http://163.com";
         stvc.deviceType=DeviceTypeProjection;
         return;
     }
     if (1==indexPath.section&&3==indexPath.row) {
         SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
-        stvc.cellDataFormatter=[[ClusterCellDataFormatter alloc]init];
         stvc.deviceType=DeviceTypeSoftware;
         return;
     }
