@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RemoteDevice.h"
+
 
 @protocol PCellDataFormatter;
 
@@ -14,7 +16,8 @@
     
 }
 
-@property(nonatomic,strong)NSString*urlString;
+
+@property(nonatomic,assign)DeviceType deviceType;
 @property(nonatomic,strong)id<PCellDataFormatter>cellDataFormatter;
 
 @end

@@ -11,10 +11,11 @@
 #import "TestViewController.h"
 #import "SwitchTableViewController.h"
 #import "StartViewController.h"
-
+#import "AsyncSocketController.h"
 
 #import "ClusterCellDataFormatter.h"
 #import "ProjectionCellDataFormatter.h"
+#import "CoreDataAdaptor.h"
 
 
 @interface MasterViewController ()
@@ -23,6 +24,8 @@
 @end
 
 @implementation MasterViewController
+
+@synthesize socketController;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -34,6 +37,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
+    [[CoreDataAdaptor instance] saveCurrentChanges:nil];
 
 }
 
@@ -53,19 +57,26 @@
     if (1==indexPath.section&&0==indexPath.row) {
         SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
         stvc.cellDataFormatter=[[ClusterCellDataFormatter alloc]init];
-        stvc.urlString=@"http://163.com";
+        stvc.deviceType=DeviceTypeCluster;
         return;
     }
     if (1==indexPath.section&&1==indexPath.row) {
         SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
         stvc.cellDataFormatter=[[ProjectionCellDataFormatter alloc]init];
-        stvc.urlString=@"http://163.com";
+        //stvc.urlString=@"http://163.com";
+        stvc.deviceType=DeviceTypeProjection;
         return;
     }
     if (1==indexPath.section&&3==indexPath.row) {
         SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
         stvc.cellDataFormatter=[[ClusterCellDataFormatter alloc]init];
-        stvc.urlString=@"http://163.com";
+        stvc.deviceType=DeviceTypeSoftware;
+        return;
+    }
+    if (0==indexPath.section) {
+        
+        //StartViewController*stvc=(StartViewController*)navi.topViewController;
+       
         return;
     }
 }

@@ -10,6 +10,9 @@
 #import "DetailViewController.h"
 #import "GlobalNotification.h"
 #import "DeviceTableViewController.h"
+#import "AsyncSocketController.h"
+#import "GCDAsyncSocket.h"
+#import "MasterViewController.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>{
     
@@ -70,23 +73,46 @@
         return NO;
     }
 }
-#pragma mark -
+#pragma mark  -- Notification Messages
 
 -(void)userDidLoginNotificationReceived:(NSNotification*)notification{
     NSAssert(nil!=self.rootViewController, @"Root View Controller should not be nil");
-    //self.window.rootViewController=self.rootViewController;
-    
-    UIStoryboard*storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UINavigationController*navi=[storyboard instantiateViewControllerWithIdentifier:@"DeviceNaviController"];
-    self.window.rootViewController=navi;
+
+    self.window.rootViewController=self.rootViewController;
 }
+-(void)deviceConnectedNotificationReceived:(NSNotification*)notification{
+     NSAssert(nil!=self.rootViewController, @"Root View Controller should not be nil");
+   
+    
+    GCDAsyncSocket*socket=[notification.userInfo objectForKey:DeviceConnectedNotificatioonKeySocket];
+    Device*dvc=[notification.userInfo objectForKey:DeviceConnectedNotificationKeyDevice];
+    
+    UISplitViewController*splitViewController=(UISplitViewController*)self.rootViewController;
+    
+    UINavigationController*masterNavi=(UINavigationController*)splitViewController.viewControllers.firstObject;
+    AsyncSocketController*socketController=[[AsyncSocketController alloc]initWithSocket:socket device:dvc];
+    
+    MasterViewController*mvc=(MasterViewController*)masterNavi.topViewController;
+    mvc.socketController=socketController;
+    
+
+   
+  
+
+     self.window.rootViewController=self.rootViewController;
+    
+}
+
+#pragma mark -- UISplitViewController delegate
+
+
 
 #pragma mark - private messages
 
 -(void)addNotificationCenterObservers{
     
     
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceConnectedNotificationReceived:) name:DeviceConnectedNotificationName object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(userDidLoginNotificationReceived:) name:LoginSuccessNotificationName object:nil];
 }
 

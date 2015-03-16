@@ -12,6 +12,7 @@
 
 -(void)setIndexPath:(NSIndexPath *)indexPath{
     //objc_setAssociatedObject(
+    //UISwitch
 }
 
 -(NSIndexPath*)indexPath{

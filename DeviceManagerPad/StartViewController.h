@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class AsyncSocketController;
+
 @interface StartViewController : UIViewController
+
+@property(nonatomic,strong)AsyncSocketController*socketController;
 
 @end

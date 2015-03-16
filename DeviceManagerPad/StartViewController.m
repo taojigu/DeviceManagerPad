@@ -7,12 +7,16 @@
 //
 
 #import "StartViewController.h"
+#import "AsyncSocketController.h"
+
 
 @interface StartViewController ()
 
 @end
 
 @implementation StartViewController
+
+@synthesize socketController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +26,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+-(IBAction)powerOn:(id)sender{
+    
+    [self.socketController powerOnAll];
+}
+-(IBAction)powerOff:(id)sender{
+    [self.socketController powerOffAll];
 }
 
 /*

@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @class DetailViewController;
+@class AsyncSocketController;
+
 
 @interface MasterViewController : UITableViewController
 
-@property (strong, nonatomic) DetailViewController *detailViewController;
 
+@property (strong, nonatomic) DetailViewController *detailViewController;
+@property(nonatomic,strong)AsyncSocketController*socketController;
 
 @end
 

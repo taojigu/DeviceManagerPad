@@ -9,25 +9,37 @@
 #import "SwitchTableViewController.h"
 #import "AFHTTPRequestOperation.h"
 #import "PCellDataFormatter.h"
+#import "CoreDataAdaptor.h"
+#import "DeviceDetailViewController.h"
+#import "CoreDateTypeUtility.h"
 
-@interface SwitchTableViewController ()
+
+
+
+#define AddRowSection 0
+
+@interface SwitchTableViewController ()<DeviceDetailViewControllerDelegate>{
+    
+}
+
+
+@property(nonatomic,strong)NSMutableArray*devicArray;
 
 @end
 
 @implementation SwitchTableViewController
 
-@synthesize urlString;
+
+@synthesize devicArray;
+
 @synthesize cellDataFormatter;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [self startRequestCellData];
+    self.devicArray=[[NSMutableArray alloc]init];
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self readDeviceDataFromCoreData];
+    //[self startRequestCellData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,50 +50,89 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.cellDataFormatter numberOfRows:tableView section:section];
+    //return [self.cellDataFormatter numberOfRows:tableView section:section];
+    if (AddRowSection==section) {
+        return 1;
+    }
+    else{
+        return self.devicArray.count;
+    }
 }
 
 
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if (AddRowSection==section) {
+        return nil;
+    }
+    else{
+        return @"设备列表";
+    }
+}
+
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
     
-
+    
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString*cellIdentifer= @"SwitchCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer forIndexPath:indexPath];
-
-    NSString*cellTilte=[self.cellDataFormatter titleForCell:tableView indexPath:indexPath];
-    // Configure the cell...
-    cell.textLabel.text=cellTilte;
+    if (indexPath.section==AddRowSection) {
+        return  [self addDeviceCell:tableView indexPath:indexPath];
+    }
     
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer forIndexPath:indexPath];
+    
+
+    if (AddRowSection==indexPath.section) {
+        cell.textLabel.text=@"Add Device";
+    }
+    else{
+        RemoteDevice*device=[self.devicArray objectAtIndex:indexPath.row];
+        cell.textLabel.text=device.name;
+    }
+
     return cell;
 }
 
-/*
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self performSegueWithIdentifier:@"SeguePushDetail" sender:self];
+ 
+}
+
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
+    
+    if(indexPath.section==AddRowSection){
+        return NO;
+    }
     return YES;
 }
-*/
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSAssert(indexPath.section!=AddRowSection, @"not this section should be delegte");
         // Delete the row from the data source
+        RemoteDevice*device=[self.devicArray objectAtIndex:indexPath.row];
+        [[CoreDataAdaptor instance] deleteDevice:device];
+        [self.devicArray removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        
+        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -97,23 +148,80 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NSIndexPath*indexPath=[self.tableView indexPathForSelectedRow];
+    UIViewController*destViewContrller=(UIViewController*)segue.destinationViewController;
+    if ([DeviceDetailViewController class]==[destViewContrller class]) {
+        DeviceDetailViewController*ddvc=(DeviceDetailViewController*)destViewContrller;
+        ddvc.delegate=self;
+        ddvc.deviceType=self.deviceType;
+        if (AddRowSection==indexPath.section) {
+            ddvc.remoteDevice=nil;
+            ddvc.detailType=DetailTypeAdd;
+            RemoteDevice*dvc=[[CoreDataAdaptor instance] createNewDevice];
+            dvc.name=[CoreDateTypeUtility titleForDeviceType:self.deviceType];
+            dvc.port=[NSNumber numberWithInteger:8080];
+            dvc.deviceIP=@"192.168.1.1";
+            dvc.type=[NSNumber numberWithInteger:self.deviceType];
+            ddvc.remoteDevice=dvc;
+            
+        }
+        else{
+            RemoteDevice*rdice=[self.devicArray objectAtIndex:indexPath.row];
+            ddvc.remoteDevice=rdice;
+            ddvc.detailType=DetailTypeEdit;
+        }
+        return;
+    }
 }
-*/
+
+#pragma mark -- DeviceDetailViewController Delegate messages
+-(void)remoteDeviceDidAdded:(DeviceDetailViewController *)viewConroller remotedDevice:(RemoteDevice *)remoteDevice{
+    [[CoreDataAdaptor instance] saveCurrentChanges:nil];
+    [self.devicArray removeAllObjects];
+    [self.devicArray addObjectsFromArray:[[CoreDataAdaptor instance] deviceArray:self.deviceType]];
+    [self.tableView reloadData];
+}
+-(void)remoteDeviceDidUpdated:(DeviceDetailViewController *)viewConroller remotedDevice:(RemoteDevice *)remoteDevice{
+    
+    [[CoreDataAdaptor instance] saveCurrentChanges:nil];
+    [self readDeviceDataFromCoreData];
+
+    
+}
+-(void)remoteDeviceEditCanceled:(DeviceDetailViewController *)viewController{
+    
+    [[CoreDataAdaptor instance] undoCurrentChanges];
+}
 
 #pragma mark -- private messages
+
+-(UITableViewCell*)addDeviceCell:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath{
+    static NSString*addDeviceCell=@"AddDeviceCell";
+    UITableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:addDeviceCell];
+    cell.textLabel.text=@"Add Device";
+    return cell;
+}
+
+
+-(void)readDeviceDataFromCoreData{
+    
+    [self.devicArray removeAllObjects];
+    [self.devicArray addObjectsFromArray:[[CoreDataAdaptor instance] deviceArray:self.deviceType]];
+    [self.tableView reloadData];
+}
 
 -(void)startRequestCellData{
     
     NSDictionary*paraDict=@{@"pk_uuid":@"gujitao"};
     
-    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:self.urlString parameters:paraDict constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:nil parameters:paraDict constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
     } error:nil];
     
