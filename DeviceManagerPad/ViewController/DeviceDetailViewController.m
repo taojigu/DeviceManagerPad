@@ -76,6 +76,7 @@
 -(void)refresh{
     self.deviceNameTextField.text=self.remoteDevice.name;
     self.ipTextField.text=self.remoteDevice.deviceIP;
+    self.portTextField.text=[NSString stringWithFormat:@"%@",self.remoteDevice.port];
     self.title=[CoreDateTypeUtility titleForDeviceType:self.deviceType];
 }
 

@@ -407,6 +407,9 @@
                                             <state key="normal" title="打开">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="powerOnButtonClicked:" destination="F39-Lu-rxG" eventType="touchUpInside" id="U2Q-HR-fpz"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDc-aV-fr9">
                                             <rect key="frame" x="502" y="15" width="46" height="30"/>
@@ -416,6 +419,9 @@
                                             <state key="normal" title="关闭">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="powerOffButtonClicked:" destination="F39-Lu-rxG" eventType="touchUpInside" id="hB7-fD-jkN"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -600,7 +606,7 @@
         <!--日志-->
         <scene sceneID="8XJ-Gx-7nu">
             <objects>
-                <viewController title="日志" id="GL8-MF-7PM" sceneMemberID="viewController">
+                <viewController title="日志" id="GL8-MF-7PM" customClass="OperationLogVIewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9CQ-6Z-sNN"/>
                         <viewControllerLayoutGuide type="bottom" id="hpH-bI-gd3"/>
@@ -624,10 +630,32 @@
                             <constraint firstAttribute="trailing" secondItem="eck-oQ-Z0Z" secondAttribute="trailing" id="V0Z-mY-pbR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="日志" id="ptT-42-iVt">
-                        <barButtonItem key="leftBarButtonItem" title="刷新" id="I8z-4b-hi1"/>
-                        <barButtonItem key="rightBarButtonItem" title="清空" id="fwB-SO-Nn7"/>
+                    <navigationItem key="navigationItem" id="ptT-42-iVt">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="刷新" id="I8z-4b-hi1">
+                            <connections>
+                                <action selector="refreshButtonClicked:" destination="GL8-MF-7PM" id="LNs-wJ-ZfP"/>
+                            </connections>
+                        </barButtonItem>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="7Iy-rY-18C">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="7天"/>
+                                <segment title="1个月"/>
+                                <segment title="3个月"/>
+                            </segments>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" title="清空" id="fwB-SO-Nn7">
+                            <connections>
+                                <action selector="clearButtonClicked:" destination="GL8-MF-7PM" id="xnZ-la-72N"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segmentControl" destination="7Iy-rY-18C" id="35d-tK-cBh"/>
+                        <outlet property="textView" destination="eck-oQ-Z0Z" id="cpA-On-sga"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VuT-GV-Yw3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

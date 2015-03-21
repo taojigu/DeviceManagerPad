@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PCommunication.h"
 
-@class AsyncSocketController;
+
 
 @interface StartViewController : UIViewController
 
-@property(nonatomic,strong)AsyncSocketController*socketController;
+@property(nonatomic,strong)id<PCommunicaion>communication;
 
 @end

@@ -13,6 +13,7 @@
 #import "CoreDateTypeUtility.h"
 
 #import "SwitchCell.h"
+#import "UIControl+IndexPath.h"
 
 
 
@@ -29,11 +30,8 @@
 @end
 
 @implementation SwitchTableViewController
-
-
+@synthesize communication;
 @synthesize devicArray;
-
-@synthesize cellDataFormatter;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -87,6 +85,8 @@
     }
     static NSString*cellIdentifer= @"SwitchCell";
     SwitchCell *cell = (SwitchCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifer forIndexPath:indexPath];
+    cell.powerOnButton.indexPath=indexPath;
+    cell.powerOffButton.indexPath=indexPath;
     
 
   
@@ -178,6 +178,22 @@
         }
         return;
     }
+}
+
+#pragma mark -- selector messages
+
+-(IBAction)powerOnButtonClicked:(id)sender{
+    UIButton*btn=(UIButton*)sender;
+    RemoteDevice*dvc=[self.devicArray objectAtIndex:btn.indexPath.row];
+    [self.communication sendPowerOn:dvc.deviceIP port:dvc.port.integerValue];
+    [[CoreDataAdaptor instance] insertOperationLog:@"UserName" command:@"PowerON" device:dvc dateTime:[NSDate date]];
+}
+
+-(IBAction)powerOffButtonClicked:(id)sender{
+    UIButton*btn=(UIButton*)sender;
+    RemoteDevice*dvc=[self.devicArray objectAtIndex:btn.indexPath.row];
+    [self.communication sendPowerOff:dvc.deviceIP port:dvc.port.integerValue];
+    [[CoreDataAdaptor instance] insertOperationLog:@"UserName" command:@"PowerOFF" device:dvc dateTime:[NSDate date]];
 }
 
 #pragma mark -- DeviceDetailViewController Delegate messages

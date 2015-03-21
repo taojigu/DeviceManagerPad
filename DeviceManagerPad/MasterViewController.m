@@ -12,6 +12,12 @@
 #import "SwitchTableViewController.h"
 #import "StartViewController.h"
 #import "AsyncSocketController.h"
+#import "MainCommandControl.h"
+#import "StereoCommandControl.h"
+#import "ClusterCommandControl.h"
+#import "ProjectionCommandControl.h"
+#import "StereoCommandControl.h"
+#import "SoftwareCommandControl.h"
 
 #import "CoreDataAdaptor.h"
 
@@ -55,16 +61,22 @@
     if (1==indexPath.section&&0==indexPath.row) {
         SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
         stvc.deviceType=DeviceTypeCluster;
+        MainCommandControl*mainControl=[[MainCommandControl alloc]init];
+        stvc.communication=mainControl;
         return;
     }
     if (1==indexPath.section&&1==indexPath.row) {
         SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
         stvc.deviceType=DeviceTypeProjection;
+        ProjectionCommandControl*prjControl=[[ProjectionCommandControl alloc]init];
+        stvc.communication=prjControl;
         return;
     }
     if (1==indexPath.section&&3==indexPath.row) {
         SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
         stvc.deviceType=DeviceTypeSoftware;
+        SoftwareCommandControl*scc=[[SoftwareCommandControl alloc]init];
+        stvc.communication=scc;
         return;
     }
     if (0==indexPath.section) {

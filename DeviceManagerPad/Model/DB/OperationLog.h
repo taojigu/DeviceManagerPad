@@ -10,10 +10,19 @@
 #import <CoreData/CoreData.h>
 
 
+
+
+
 @interface OperationLog : NSManagedObject
 
-@property (nonatomic, retain) NSString * text;
+@property (nonatomic, retain) NSString * command;
 @property (nonatomic, retain) NSString * user;
 @property (nonatomic, retain) NSDate * dateTime;
+@property(nonatomic,retain)NSString*deviceIP;
+@property(nonatomic,retain)NSString*deviceName;
+@property(nonatomic,retain)NSNumber*deviceType;
+
+
+-(NSString*)operationDecription;
 
 @end

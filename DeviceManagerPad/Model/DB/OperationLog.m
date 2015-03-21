@@ -11,8 +11,24 @@
 
 @implementation OperationLog
 
-@dynamic text;
+@dynamic command;
 @dynamic user;
 @dynamic dateTime;
+@dynamic deviceIP;
+@dynamic deviceName;
+@dynamic deviceType;
+
+
+-(NSString*)operationDecription{
+    
+    NSMutableString*result=[[NSMutableString alloc]init];
+    [result appendFormat:@"[%@]",self.dateTime];
+    [result appendFormat:@" %@:",self.user];
+    [result appendFormat:@" 向%@(%@) send %@",self.deviceName,self.deviceIP,self.command];
+    return result;
+    
+}
+
+
 
 @end

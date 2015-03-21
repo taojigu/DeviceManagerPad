@@ -109,6 +109,34 @@
   
     return deviceArray;
 }
+
+
+
+-(void)insertOperationLog:(NSString*)userName command:(NSString*)command device:(RemoteDevice*)device dateTime:(NSDate*)dateTime{
+    OperationLog*log=[NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([OperationLog class]) inManagedObjectContext:self.managedDocument.managedObjectContext];
+    log.user=userName;
+    log.command=command;
+    log.deviceIP=device.deviceIP;
+    log.deviceName=device.name;
+    log.deviceType=device.type;
+    log.dateTime=dateTime;
+    
+    [self saveCurrentChanges:nil];
+    
+    
+}
+-(NSArray*)operationLogArray:(NSDate*)afterDate{
+    
+    NSPredicate*predicate=[NSPredicate predicateWithFormat:@"dateTime>=%@",afterDate];
+    NSSortDescriptor*sort=[NSSortDescriptor sortDescriptorWithKey:@"dateTime" ascending:NO];
+    NSArray*logArray=[self fetchResultWithPredicate:NSStringFromClass([OperationLog class]) predicate:predicate sortDescriptorArray:@[sort] error:nil];
+    
+    return logArray;
+}
+
+
+#pragma mark -- private messages
+
 -(NSArray*)fetchResultWithPredicate:(NSString*)entityName predicate:(NSPredicate*)predicate sortDescriptorArray:(NSArray*)sortDescritptorArray error:(NSError* __autoreleasing*)error{
     
     NSFetchRequest*fetchRequest=[[NSFetchRequest alloc]initWithEntityName:entityName];

@@ -9,6 +9,8 @@
 #import "StartViewController.h"
 #import "AsyncSocketController.h"
 
+#import "CoreDataAdaptor.h"
+
 
 @interface StartViewController ()
 
@@ -16,7 +18,8 @@
 
 @implementation StartViewController
 
-@synthesize socketController;
+
+@synthesize communication;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,10 +34,14 @@
 
 -(IBAction)powerOn:(id)sender{
     
-    [self.socketController powerOnAll];
+    [self.communication sendPowerOn:nil port:0];
+    
+
+    
+
 }
 -(IBAction)powerOff:(id)sender{
-    [self.socketController powerOffAll];
+    [self.communication sendPowerOff:nil port:0];
 }
 
 /*

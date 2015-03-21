@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "RemoteDevice.h"
+#import "PCommunication.h"
 
 
-@protocol PCellDataFormatter;
 
 @interface SwitchTableViewController : UITableViewController{
     
@@ -18,6 +18,6 @@
 
 
 @property(nonatomic,assign)DeviceType deviceType;
-@property(nonatomic,strong)id<PCellDataFormatter>cellDataFormatter;
+@property(nonatomic,strong)id<PCommunicaion>communication;
 
 @end
