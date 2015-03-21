@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		164311FB1AB1415900DFEA7D /* AsyncUdpSocketController.m in Sources */ = {isa = PBXBuildFile; fileRef = 164311FA1AB1415900DFEA7D /* AsyncUdpSocketController.m */; };
 		164311FF1AB2EA0800DFEA7D /* CoreDataAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 164311FE1AB2EA0800DFEA7D /* CoreDataAdaptor.m */; };
-		164312031AB2F10200DFEA7D /* SocketDataConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 164312021AB2F10200DFEA7D /* SocketDataConverter.m */; };
 		164312061AB5615000DFEA7D /* UIControl+IndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 164312051AB5615000DFEA7D /* UIControl+IndexPath.m */; };
 		164312091AB56CE000DFEA7D /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 164312071AB56CE000DFEA7D /* CoreDataModel.xcdatamodeld */; };
 		1643120C1AB571B100DFEA7D /* OperationLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1643120B1AB571B100DFEA7D /* OperationLog.m */; };
@@ -50,6 +49,9 @@
 		16AE83D81AB9A12E00F3FE63 /* StereoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AE83D71AB9A12E00F3FE63 /* StereoViewController.m */; };
 		16B5E20D1ABD5C9300D098B3 /* SwitchSocketSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B5E20C1ABD5C9300D098B3 /* SwitchSocketSettingController.m */; };
 		16B5E2101ABD602600D098B3 /* FakeSocketFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B5E20F1ABD602600D098B3 /* FakeSocketFactory.m */; };
+		16B5E2131ABD6FFF00D098B3 /* SocketUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B5E2121ABD6FFF00D098B3 /* SocketUtility.m */; };
+		16B5E2161ABD718600D098B3 /* SwitchCommandControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B5E2151ABD718600D098B3 /* SwitchCommandControl.m */; };
+		16B5E2191ABD8F3400D098B3 /* StereoSocketSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B5E2181ABD8F3400D098B3 /* StereoSocketSettingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +69,6 @@
 		164311FA1AB1415900DFEA7D /* AsyncUdpSocketController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncUdpSocketController.m; path = Util/GCDSocket/AsyncUdpSocketController.m; sourceTree = "<group>"; };
 		164311FD1AB2EA0800DFEA7D /* CoreDataAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataAdaptor.h; path = Model/DB/CoreDataAdaptor.h; sourceTree = "<group>"; };
 		164311FE1AB2EA0800DFEA7D /* CoreDataAdaptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataAdaptor.m; path = Model/DB/CoreDataAdaptor.m; sourceTree = "<group>"; };
-		164312011AB2F10200DFEA7D /* SocketDataConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketDataConverter.h; path = Util/GCDSocket/SocketDataConverter.h; sourceTree = "<group>"; };
-		164312021AB2F10200DFEA7D /* SocketDataConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketDataConverter.m; path = Util/GCDSocket/SocketDataConverter.m; sourceTree = "<group>"; };
 		164312041AB5615000DFEA7D /* UIControl+IndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIControl+IndexPath.h"; path = "UIView/UIControl+IndexPath.h"; sourceTree = "<group>"; };
 		164312051AB5615000DFEA7D /* UIControl+IndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIControl+IndexPath.m"; path = "UIView/UIControl+IndexPath.m"; sourceTree = "<group>"; };
 		164312081AB56CE000DFEA7D /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -152,6 +152,12 @@
 		16B5E20C1ABD5C9300D098B3 /* SwitchSocketSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwitchSocketSettingController.m; path = ViewController/SwitchSocketSettingController.m; sourceTree = "<group>"; };
 		16B5E20E1ABD602600D098B3 /* FakeSocketFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FakeSocketFactory.h; path = Model/FakeSocketFactory.h; sourceTree = "<group>"; };
 		16B5E20F1ABD602600D098B3 /* FakeSocketFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FakeSocketFactory.m; path = Model/FakeSocketFactory.m; sourceTree = "<group>"; };
+		16B5E2111ABD6FFF00D098B3 /* SocketUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketUtility.h; path = Util/GCDSocket/SocketUtility.h; sourceTree = "<group>"; };
+		16B5E2121ABD6FFF00D098B3 /* SocketUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketUtility.m; path = Util/GCDSocket/SocketUtility.m; sourceTree = "<group>"; };
+		16B5E2141ABD718600D098B3 /* SwitchCommandControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwitchCommandControl.h; path = Communication/SwitchCommandControl.h; sourceTree = "<group>"; };
+		16B5E2151ABD718600D098B3 /* SwitchCommandControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwitchCommandControl.m; path = Communication/SwitchCommandControl.m; sourceTree = "<group>"; };
+		16B5E2171ABD8F3400D098B3 /* StereoSocketSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StereoSocketSettingViewController.h; path = ViewController/StereoSocketSettingViewController.h; sourceTree = "<group>"; };
+		16B5E2181ABD8F3400D098B3 /* StereoSocketSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StereoSocketSettingViewController.m; path = ViewController/StereoSocketSettingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +296,8 @@
 				16AE83D71AB9A12E00F3FE63 /* StereoViewController.m */,
 				16B5E20B1ABD5C9300D098B3 /* SwitchSocketSettingController.h */,
 				16B5E20C1ABD5C9300D098B3 /* SwitchSocketSettingController.m */,
+				16B5E2171ABD8F3400D098B3 /* StereoSocketSettingViewController.h */,
+				16B5E2181ABD8F3400D098B3 /* StereoSocketSettingViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -371,8 +379,8 @@
 				1683C38B1AAD87F200C139CF /* GCDAsyncUdpSocket.m */,
 				164311F91AB1415900DFEA7D /* AsyncUdpSocketController.h */,
 				164311FA1AB1415900DFEA7D /* AsyncUdpSocketController.m */,
-				164312011AB2F10200DFEA7D /* SocketDataConverter.h */,
-				164312021AB2F10200DFEA7D /* SocketDataConverter.m */,
+				16B5E2111ABD6FFF00D098B3 /* SocketUtility.h */,
+				16B5E2121ABD6FFF00D098B3 /* SocketUtility.m */,
 			);
 			name = GCDSocket;
 			sourceTree = "<group>";
@@ -391,6 +399,8 @@
 				16AE83CE1AB7D1BB00F3FE63 /* ProjectionCommandControl.m */,
 				16AE83D01AB7D23400F3FE63 /* StereoCommandControl.h */,
 				16AE83D11AB7D23400F3FE63 /* StereoCommandControl.m */,
+				16B5E2141ABD718600D098B3 /* SwitchCommandControl.h */,
+				16B5E2151ABD718600D098B3 /* SwitchCommandControl.m */,
 			);
 			name = Communication;
 			sourceTree = "<group>";
@@ -496,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16AE83C91AB7D0BF00F3FE63 /* ClusterCommandControl.m in Sources */,
+				16B5E2191ABD8F3400D098B3 /* StereoSocketSettingViewController.m in Sources */,
 				16B5E20D1ABD5C9300D098B3 /* SwitchSocketSettingController.m in Sources */,
 				1643120F1AB571B200DFEA7D /* RemoteDevice.m in Sources */,
 				1683C38D1AAD87F200C139CF /* GCDAsyncUdpSocket.m in Sources */,
@@ -510,15 +521,16 @@
 				1683C3151AAADE9300C139CF /* MasterViewController.m in Sources */,
 				1683C30F1AAADE9300C139CF /* main.m in Sources */,
 				1683C3601AAC503E00C139CF /* AFURLResponseSerialization.m in Sources */,
+				16B5E2131ABD6FFF00D098B3 /* SocketUtility.m in Sources */,
 				1683C33F1AAC49D900C139CF /* StartViewController.m in Sources */,
 				164311FB1AB1415900DFEA7D /* AsyncUdpSocketController.m in Sources */,
 				1683C35F1AAC503E00C139CF /* AFURLRequestSerialization.m in Sources */,
+				16B5E2161ABD718600D098B3 /* SwitchCommandControl.m in Sources */,
 				1683C35D1AAC503E00C139CF /* AFSecurityPolicy.m in Sources */,
 				1683C38C1AAD87F200C139CF /* GCDAsyncSocket.m in Sources */,
 				164312091AB56CE000DFEA7D /* CoreDataModel.xcdatamodeld in Sources */,
 				1683C3591AAC503E00C139CF /* AFHTTPRequestOperation.m in Sources */,
 				16AE83D51AB83CF600F3FE63 /* OperationLogVIewController.m in Sources */,
-				164312031AB2F10200DFEA7D /* SocketDataConverter.m in Sources */,
 				16AE83C61AB7D0A800F3FE63 /* MainCommandControl.m in Sources */,
 				16AE83CF1AB7D1BB00F3FE63 /* ProjectionCommandControl.m in Sources */,
 				1683C3611AAC503E00C139CF /* AFURLSessionManager.m in Sources */,

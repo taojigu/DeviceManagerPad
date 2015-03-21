@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SwitchSocketSettingController : UIViewController
+@interface SwitchSocketSettingController : UIViewController{
+    
+}
+
+@property(nonatomic,strong)NSString*powerOnCommandKey;
+@property(nonatomic,strong)NSString*powerOffCommandKey;
+
 
 @end

@@ -18,3 +18,8 @@ static NSString*const ProjectionPowerOffKey=@"ProjectionPowerOffKey";
 
 static NSString*const SoftwarePowerOnKey=@"SoftwarePowerOnKey";
 static NSString*const SoftwarePowerOffKey=@"SoftwarePowerOffKey";
+
+
+
+#define PowerOnTag 101
+#define PowerOffTag 102

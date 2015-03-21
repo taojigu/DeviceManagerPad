@@ -24,7 +24,7 @@
 -(void)deleteDevice:(RemoteDevice*)device;
 -(void)undoCurrentChanges;
 
--(OperationLog*)createNewOperationLog;
+
 
 -(void)insertOperationLog:(NSString*)userName commandType:(NSString*)commandType device:(RemoteDevice*)device dateTime:(NSDate*)dateTime;
 
