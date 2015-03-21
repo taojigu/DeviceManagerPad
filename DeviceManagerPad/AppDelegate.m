@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "DetailViewController.h"
 #import "GlobalNotification.h"
-#import "AsyncSocketController.h"
+#import "AsyncUdpSocketController.h"
 #import "GCDAsyncSocket.h"
 #import "MasterViewController.h"
 
@@ -83,18 +83,6 @@
      NSAssert(nil!=self.rootViewController, @"Root View Controller should not be nil");
    
     
-    GCDAsyncSocket*socket=[notification.userInfo objectForKey:DeviceConnectedNotificatioonKeySocket];
-    Device*dvc=[notification.userInfo objectForKey:DeviceConnectedNotificationKeyDevice];
-    
-    UISplitViewController*splitViewController=(UISplitViewController*)self.rootViewController;
-    
-    UINavigationController*masterNavi=(UINavigationController*)splitViewController.viewControllers.firstObject;
-    AsyncSocketController*socketController=[[AsyncSocketController alloc]initWithSocket:socket device:dvc];
-    
-    MasterViewController*mvc=(MasterViewController*)masterNavi.topViewController;
-    mvc.socketController=socketController;
-    
-
    
   
 

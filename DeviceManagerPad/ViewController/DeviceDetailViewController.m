@@ -102,7 +102,7 @@
     UIBarButtonItem*doneItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneClicked:)];
     self.navigationItem.rightBarButtonItem=doneItem;
     
-    UIBarButtonItem*cancelItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonClicked:)];
+    //UIBarButtonItem*cancelItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonClicked:)];
     //self.navigationItem.leftBarButtonItem=cancelItem;
 
 

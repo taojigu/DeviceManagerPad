@@ -13,4 +13,6 @@
 
 @property(nonatomic,strong)GCDAsyncUdpSocket*udpSocket;
 
+-(instancetype)initWithUdpSocket:(GCDAsyncUdpSocket*)socket;
+
 @end

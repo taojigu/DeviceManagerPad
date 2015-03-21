@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		164311FB1AB1415900DFEA7D /* AsyncSocketController.m in Sources */ = {isa = PBXBuildFile; fileRef = 164311FA1AB1415900DFEA7D /* AsyncSocketController.m */; };
+		164311FB1AB1415900DFEA7D /* AsyncUdpSocketController.m in Sources */ = {isa = PBXBuildFile; fileRef = 164311FA1AB1415900DFEA7D /* AsyncUdpSocketController.m */; };
 		164311FF1AB2EA0800DFEA7D /* CoreDataAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 164311FE1AB2EA0800DFEA7D /* CoreDataAdaptor.m */; };
 		164312031AB2F10200DFEA7D /* SocketDataConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 164312021AB2F10200DFEA7D /* SocketDataConverter.m */; };
 		164312061AB5615000DFEA7D /* UIControl+IndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 164312051AB5615000DFEA7D /* UIControl+IndexPath.m */; };
@@ -48,6 +48,8 @@
 		16AE83D21AB7D23400F3FE63 /* StereoCommandControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AE83D11AB7D23400F3FE63 /* StereoCommandControl.m */; };
 		16AE83D51AB83CF600F3FE63 /* OperationLogVIewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AE83D41AB83CF600F3FE63 /* OperationLogVIewController.m */; };
 		16AE83D81AB9A12E00F3FE63 /* StereoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AE83D71AB9A12E00F3FE63 /* StereoViewController.m */; };
+		16B5E20D1ABD5C9300D098B3 /* SwitchSocketSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B5E20C1ABD5C9300D098B3 /* SwitchSocketSettingController.m */; };
+		16B5E2101ABD602600D098B3 /* FakeSocketFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B5E20F1ABD602600D098B3 /* FakeSocketFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		164311F91AB1415900DFEA7D /* AsyncSocketController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocketController.h; path = Util/GCDSocket/AsyncSocketController.h; sourceTree = "<group>"; };
-		164311FA1AB1415900DFEA7D /* AsyncSocketController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocketController.m; path = Util/GCDSocket/AsyncSocketController.m; sourceTree = "<group>"; };
+		164311F91AB1415900DFEA7D /* AsyncUdpSocketController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncUdpSocketController.h; path = Util/GCDSocket/AsyncUdpSocketController.h; sourceTree = "<group>"; };
+		164311FA1AB1415900DFEA7D /* AsyncUdpSocketController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncUdpSocketController.m; path = Util/GCDSocket/AsyncUdpSocketController.m; sourceTree = "<group>"; };
 		164311FD1AB2EA0800DFEA7D /* CoreDataAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataAdaptor.h; path = Model/DB/CoreDataAdaptor.h; sourceTree = "<group>"; };
 		164311FE1AB2EA0800DFEA7D /* CoreDataAdaptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataAdaptor.m; path = Model/DB/CoreDataAdaptor.m; sourceTree = "<group>"; };
 		164312011AB2F10200DFEA7D /* SocketDataConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketDataConverter.h; path = Util/GCDSocket/SocketDataConverter.h; sourceTree = "<group>"; };
@@ -145,6 +147,11 @@
 		16AE83D61AB9A12E00F3FE63 /* StereoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StereoViewController.h; path = ViewController/StereoViewController.h; sourceTree = "<group>"; };
 		16AE83D71AB9A12E00F3FE63 /* StereoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StereoViewController.m; path = ViewController/StereoViewController.m; sourceTree = "<group>"; };
 		16B5E2091ABD293A00D098B3 /* UserManagement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UserManagement.h; path = Const/UserManagement.h; sourceTree = "<group>"; };
+		16B5E20A1ABD590300D098B3 /* DeviceCommunication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DeviceCommunication.h; path = Const/DeviceCommunication.h; sourceTree = "<group>"; };
+		16B5E20B1ABD5C9300D098B3 /* SwitchSocketSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwitchSocketSettingController.h; path = ViewController/SwitchSocketSettingController.h; sourceTree = "<group>"; };
+		16B5E20C1ABD5C9300D098B3 /* SwitchSocketSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwitchSocketSettingController.m; path = ViewController/SwitchSocketSettingController.m; sourceTree = "<group>"; };
+		16B5E20E1ABD602600D098B3 /* FakeSocketFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FakeSocketFactory.h; path = Model/FakeSocketFactory.h; sourceTree = "<group>"; };
+		16B5E20F1ABD602600D098B3 /* FakeSocketFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FakeSocketFactory.m; path = Model/FakeSocketFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +288,8 @@
 				16AE83D41AB83CF600F3FE63 /* OperationLogVIewController.m */,
 				16AE83D61AB9A12E00F3FE63 /* StereoViewController.h */,
 				16AE83D71AB9A12E00F3FE63 /* StereoViewController.m */,
+				16B5E20B1ABD5C9300D098B3 /* SwitchSocketSettingController.h */,
+				16B5E20C1ABD5C9300D098B3 /* SwitchSocketSettingController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -327,6 +336,8 @@
 				164311FC1AB2E9CE00DFEA7D /* DB */,
 				1683C3671AAC575D00C139CF /* DataResult.h */,
 				1683C3681AAC575D00C139CF /* DataResult.m */,
+				16B5E20E1ABD602600D098B3 /* FakeSocketFactory.h */,
+				16B5E20F1ABD602600D098B3 /* FakeSocketFactory.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -346,6 +357,7 @@
 			children = (
 				1683C3861AAD494800C139CF /* GlobalNotification.h */,
 				16B5E2091ABD293A00D098B3 /* UserManagement.h */,
+				16B5E20A1ABD590300D098B3 /* DeviceCommunication.h */,
 			);
 			name = Const;
 			sourceTree = "<group>";
@@ -357,8 +369,8 @@
 				1683C3891AAD87F200C139CF /* GCDAsyncSocket.m */,
 				1683C38A1AAD87F200C139CF /* GCDAsyncUdpSocket.h */,
 				1683C38B1AAD87F200C139CF /* GCDAsyncUdpSocket.m */,
-				164311F91AB1415900DFEA7D /* AsyncSocketController.h */,
-				164311FA1AB1415900DFEA7D /* AsyncSocketController.m */,
+				164311F91AB1415900DFEA7D /* AsyncUdpSocketController.h */,
+				164311FA1AB1415900DFEA7D /* AsyncUdpSocketController.m */,
 				164312011AB2F10200DFEA7D /* SocketDataConverter.h */,
 				164312021AB2F10200DFEA7D /* SocketDataConverter.m */,
 			);
@@ -484,6 +496,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16AE83C91AB7D0BF00F3FE63 /* ClusterCommandControl.m in Sources */,
+				16B5E20D1ABD5C9300D098B3 /* SwitchSocketSettingController.m in Sources */,
 				1643120F1AB571B200DFEA7D /* RemoteDevice.m in Sources */,
 				1683C38D1AAD87F200C139CF /* GCDAsyncUdpSocket.m in Sources */,
 				1683C3691AAC575D00C139CF /* DataResult.m in Sources */,
@@ -498,7 +511,7 @@
 				1683C30F1AAADE9300C139CF /* main.m in Sources */,
 				1683C3601AAC503E00C139CF /* AFURLResponseSerialization.m in Sources */,
 				1683C33F1AAC49D900C139CF /* StartViewController.m in Sources */,
-				164311FB1AB1415900DFEA7D /* AsyncSocketController.m in Sources */,
+				164311FB1AB1415900DFEA7D /* AsyncUdpSocketController.m in Sources */,
 				1683C35F1AAC503E00C139CF /* AFURLRequestSerialization.m in Sources */,
 				1683C35D1AAC503E00C139CF /* AFSecurityPolicy.m in Sources */,
 				1683C38C1AAD87F200C139CF /* GCDAsyncSocket.m in Sources */,
@@ -520,6 +533,7 @@
 				164312191AB6BB6700DFEA7D /* CoreDateTypeUtility.m in Sources */,
 				16AE83D21AB7D23400F3FE63 /* StereoCommandControl.m in Sources */,
 				16AE83D81AB9A12E00F3FE63 /* StereoViewController.m in Sources */,
+				16B5E2101ABD602600D098B3 /* FakeSocketFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

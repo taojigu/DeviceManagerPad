@@ -11,7 +11,7 @@
 #import "TestViewController.h"
 #import "SwitchTableViewController.h"
 #import "StartViewController.h"
-#import "AsyncSocketController.h"
+#import "AsyncUdpSocketController.h"
 #import "MainCommandControl.h"
 #import "StereoCommandControl.h"
 #import "ClusterCommandControl.h"
@@ -22,6 +22,13 @@
 
 #import "CoreDataAdaptor.h"
 #import "CoreDateTypeUtility.h"
+#import "GCDAsyncUdpSocket.h"
+
+
+#define StartSection 0
+#define ManagementSection 1
+#define LogSetion 2
+#define SettingSection 3
 
 
 @interface MasterViewController ()
@@ -37,11 +44,14 @@
     [super awakeFromNib];
     self.clearsSelectionOnViewWillAppear = NO;
     self.preferredContentSize = CGSizeMake(320.0, 600.0);
+    
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.socketController=[[AsyncUdpSocketController alloc]init];
 
     [[CoreDataAdaptor instance] saveCurrentChanges:nil];
 
@@ -68,8 +78,8 @@
         stvc.deviceType=DeviceTypeCluster;
         stvc.title=[CoreDateTypeUtility titleForDeviceType:stvc.deviceType];
         stvc.editable=editable;
-        MainCommandControl*mainControl=[[MainCommandControl alloc]init];
-        stvc.communication=mainControl;
+        ClusterCommandControl*clsterControl=[[ClusterCommandControl alloc]initWithUdpSocket:self.socketController.udpSocket];
+        stvc.communication=clsterControl;
         return;
     }
     if (1==indexPath.section&&1==indexPath.row) {
@@ -114,6 +124,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    
+    if (SettingSection==indexPath.section) {
+        return [self socketSettincCell:tableView indexPath:indexPath];
+    }
+    
     NSString*cellIdentifer=[self cellIdentifer:indexPath];
     NSAssert(cellIdentifer.length>0, @"CellIdentifer should not be nil");
     
@@ -136,6 +151,10 @@
 
 
 #pragma mark -- privte messages
+
+-(UITableViewCell*)socketSettincCell:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath{
+    return  nil;
+}
 
 -(NSString*)cellIdentifer:(NSIndexPath*)indexPath{
     
