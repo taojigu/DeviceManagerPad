@@ -41,9 +41,6 @@
 		1683C38C1AAD87F200C139CF /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3891AAD87F200C139CF /* GCDAsyncSocket.m */; };
 		1683C38D1AAD87F200C139CF /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C38B1AAD87F200C139CF /* GCDAsyncUdpSocket.m */; };
 		16AE83C61AB7D0A800F3FE63 /* MainCommandControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AE83C51AB7D0A800F3FE63 /* MainCommandControl.m */; };
-		16AE83C91AB7D0BF00F3FE63 /* ClusterCommandControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AE83C81AB7D0BF00F3FE63 /* ClusterCommandControl.m */; };
-		16AE83CC1AB7D0D700F3FE63 /* SoftwareCommandControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AE83CB1AB7D0D700F3FE63 /* SoftwareCommandControl.m */; };
-		16AE83CF1AB7D1BB00F3FE63 /* ProjectionCommandControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AE83CE1AB7D1BB00F3FE63 /* ProjectionCommandControl.m */; };
 		16AE83D21AB7D23400F3FE63 /* StereoCommandControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AE83D11AB7D23400F3FE63 /* StereoCommandControl.m */; };
 		16AE83D51AB83CF600F3FE63 /* OperationLogVIewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AE83D41AB83CF600F3FE63 /* OperationLogVIewController.m */; };
 		16AE83D81AB9A12E00F3FE63 /* StereoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AE83D71AB9A12E00F3FE63 /* StereoViewController.m */; };
@@ -134,12 +131,6 @@
 		16AE83C21AB7C24F00F3FE63 /* PCommunication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PCommunication.h; path = Communication/PCommunication.h; sourceTree = "<group>"; };
 		16AE83C41AB7D0A800F3FE63 /* MainCommandControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainCommandControl.h; path = Communication/MainCommandControl.h; sourceTree = "<group>"; };
 		16AE83C51AB7D0A800F3FE63 /* MainCommandControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainCommandControl.m; path = Communication/MainCommandControl.m; sourceTree = "<group>"; };
-		16AE83C71AB7D0BF00F3FE63 /* ClusterCommandControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClusterCommandControl.h; path = Communication/ClusterCommandControl.h; sourceTree = "<group>"; };
-		16AE83C81AB7D0BF00F3FE63 /* ClusterCommandControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClusterCommandControl.m; path = Communication/ClusterCommandControl.m; sourceTree = "<group>"; };
-		16AE83CA1AB7D0D700F3FE63 /* SoftwareCommandControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoftwareCommandControl.h; path = Communication/SoftwareCommandControl.h; sourceTree = "<group>"; };
-		16AE83CB1AB7D0D700F3FE63 /* SoftwareCommandControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoftwareCommandControl.m; path = Communication/SoftwareCommandControl.m; sourceTree = "<group>"; };
-		16AE83CD1AB7D1BB00F3FE63 /* ProjectionCommandControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectionCommandControl.h; path = Communication/ProjectionCommandControl.h; sourceTree = "<group>"; };
-		16AE83CE1AB7D1BB00F3FE63 /* ProjectionCommandControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectionCommandControl.m; path = Communication/ProjectionCommandControl.m; sourceTree = "<group>"; };
 		16AE83D01AB7D23400F3FE63 /* StereoCommandControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StereoCommandControl.h; path = Communication/StereoCommandControl.h; sourceTree = "<group>"; };
 		16AE83D11AB7D23400F3FE63 /* StereoCommandControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StereoCommandControl.m; path = Communication/StereoCommandControl.m; sourceTree = "<group>"; };
 		16AE83D31AB83CF600F3FE63 /* OperationLogVIewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OperationLogVIewController.h; path = ViewController/OperationLogVIewController.h; sourceTree = "<group>"; };
@@ -391,12 +382,6 @@
 				16AE83C21AB7C24F00F3FE63 /* PCommunication.h */,
 				16AE83C41AB7D0A800F3FE63 /* MainCommandControl.h */,
 				16AE83C51AB7D0A800F3FE63 /* MainCommandControl.m */,
-				16AE83C71AB7D0BF00F3FE63 /* ClusterCommandControl.h */,
-				16AE83C81AB7D0BF00F3FE63 /* ClusterCommandControl.m */,
-				16AE83CA1AB7D0D700F3FE63 /* SoftwareCommandControl.h */,
-				16AE83CB1AB7D0D700F3FE63 /* SoftwareCommandControl.m */,
-				16AE83CD1AB7D1BB00F3FE63 /* ProjectionCommandControl.h */,
-				16AE83CE1AB7D1BB00F3FE63 /* ProjectionCommandControl.m */,
 				16AE83D01AB7D23400F3FE63 /* StereoCommandControl.h */,
 				16AE83D11AB7D23400F3FE63 /* StereoCommandControl.m */,
 				16B5E2141ABD718600D098B3 /* SwitchCommandControl.h */,
@@ -505,7 +490,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16AE83C91AB7D0BF00F3FE63 /* ClusterCommandControl.m in Sources */,
 				16B5E2191ABD8F3400D098B3 /* StereoSocketSettingViewController.m in Sources */,
 				16B5E20D1ABD5C9300D098B3 /* SwitchSocketSettingController.m in Sources */,
 				1643120F1AB571B200DFEA7D /* RemoteDevice.m in Sources */,
@@ -515,7 +499,6 @@
 				1683C3121AAADE9300C139CF /* AppDelegate.m in Sources */,
 				1683C3841AAC836400C139CF /* LoginViewController.m in Sources */,
 				164312061AB5615000DFEA7D /* UIControl+IndexPath.m in Sources */,
-				16AE83CC1AB7D0D700F3FE63 /* SoftwareCommandControl.m in Sources */,
 				164312121AB591CD00DFEA7D /* DeviceDetailViewController.m in Sources */,
 				1643120C1AB571B100DFEA7D /* OperationLog.m in Sources */,
 				1683C3151AAADE9300C139CF /* MasterViewController.m in Sources */,
@@ -532,7 +515,6 @@
 				1683C3591AAC503E00C139CF /* AFHTTPRequestOperation.m in Sources */,
 				16AE83D51AB83CF600F3FE63 /* OperationLogVIewController.m in Sources */,
 				16AE83C61AB7D0A800F3FE63 /* MainCommandControl.m in Sources */,
-				16AE83CF1AB7D1BB00F3FE63 /* ProjectionCommandControl.m in Sources */,
 				1683C3611AAC503E00C139CF /* AFURLSessionManager.m in Sources */,
 				1683C3181AAADE9300C139CF /* DetailViewController.m in Sources */,
 				1683C3421AAC49FC00C139CF /* SwitchTableViewController.m in Sources */,

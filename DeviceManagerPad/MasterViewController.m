@@ -14,10 +14,7 @@
 #import "AsyncUdpSocketController.h"
 #import "MainCommandControl.h"
 #import "StereoCommandControl.h"
-#import "ClusterCommandControl.h"
-#import "ProjectionCommandControl.h"
 #import "StereoCommandControl.h"
-#import "SoftwareCommandControl.h"
 #import "UserManagement.h"
 
 #import "CoreDataAdaptor.h"
