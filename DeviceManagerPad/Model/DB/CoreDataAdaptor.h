@@ -26,7 +26,11 @@
 
 -(OperationLog*)createNewOperationLog;
 
--(void)insertOperationLog:(NSString*)userName command:(NSString*)command device:(RemoteDevice*)device dateTime:(NSDate*)dateTime;
+-(void)insertOperationLog:(NSString*)userName commandType:(NSString*)commandType device:(RemoteDevice*)device dateTime:(NSDate*)dateTime;
+
+-(void)insertOperationLog:(NSString *)userName comandType:(NSString *)commandType commandText:(NSString*)commandText dateTime:(NSDate *)dateTime;
+
+
 -(NSArray*)operationLogArray:(NSDate*)afterDate;
 
 

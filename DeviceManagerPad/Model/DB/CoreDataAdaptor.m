@@ -112,10 +112,10 @@
 
 
 
--(void)insertOperationLog:(NSString*)userName command:(NSString*)command device:(RemoteDevice*)device dateTime:(NSDate*)dateTime{
+-(void)insertOperationLog:(NSString*)userName commandType:(NSString*)commandType device:(RemoteDevice*)device dateTime:(NSDate*)dateTime{
     OperationLog*log=[NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([OperationLog class]) inManagedObjectContext:self.managedDocument.managedObjectContext];
     log.user=userName;
-    log.command=command;
+    log.commandType=commandType;
     log.deviceIP=device.deviceIP;
     log.deviceName=device.name;
     log.deviceType=device.type;
@@ -123,6 +123,15 @@
     
     [self saveCurrentChanges:nil];
     
+}
+-(void)insertOperationLog:(NSString *)userName comandType:(NSString *)commandType commandText:(NSString*)commandText dateTime:(NSDate *)dateTime{
+    OperationLog*log=[NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([OperationLog class]) inManagedObjectContext:self.managedDocument.managedObjectContext];
+    log.user=userName;
+    log.commandType=commandType;
+    log.commandText=commandText;
+    log.dateTime=dateTime;
+    
+    [self saveCurrentChanges:nil];
     
 }
 -(NSArray*)operationLogArray:(NSDate*)afterDate{

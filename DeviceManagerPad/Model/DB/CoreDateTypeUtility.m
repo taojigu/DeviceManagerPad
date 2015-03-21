@@ -38,6 +38,10 @@
         item3.deviceTpye=DeviceTypeSoftware;
         item3.deviceTypeTitle=@"软件";
         [itemArray addObject:item3];
+        
+        DeviceTypeItem*item4=[[DeviceTypeItem alloc]init];
+        item4.deviceTpye=DeviceTypeAll;
+        item4.deviceTypeTitle=@"所有类型设备";
     }
     return itemArray;
 }

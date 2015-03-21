@@ -10,4 +10,7 @@
 
 @implementation StereoViewController
 
+@synthesize communication;
+@synthesize editable;
+
 @end

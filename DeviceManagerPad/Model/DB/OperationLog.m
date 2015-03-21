@@ -7,11 +7,13 @@
 //
 
 #import "OperationLog.h"
+#import "RemoteDevice.h"
 
 
 @implementation OperationLog
 
-@dynamic command;
+@dynamic commandType;
+@dynamic commandText;
 @dynamic user;
 @dynamic dateTime;
 @dynamic deviceIP;
@@ -24,7 +26,13 @@
     NSMutableString*result=[[NSMutableString alloc]init];
     [result appendFormat:@"[%@]",self.dateTime];
     [result appendFormat:@" %@:",self.user];
-    [result appendFormat:@" 向%@(%@) send %@",self.deviceName,self.deviceIP,self.command];
+    if ([self.commandType isEqualToString:DeviceCommandTypePowerOnAll]||[self.commandType isEqualToString:DeviceCommandTypePowerOfAll]) {
+        [result appendFormat:@" %@",self.commandText];
+    }
+    else{
+        [result appendFormat:@" Send %@ to %@(%@)",self.commandType,self.deviceName,self.deviceIP];
+    }
+    
     return result;
     
 }

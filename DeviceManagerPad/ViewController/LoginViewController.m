@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "GlobalNotification.h"
+#import "UserManagement.h"
 
 @interface LoginViewController (){
     @private
@@ -27,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self initFieldViewValues];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,16 +57,45 @@
 #pragma mark -- private messages
 
 -(void)login{
-
-    [UIView animateWithDuration:0.5 animations:^{
-        CGAffineTransform transform=CGAffineTransformScale(self.view.transform, 10, 10);
-        self.view.transform=transform;
-        self.view.alpha=0;
+    
+    if ([self isAuthenticated]) {
+        [UIView animateWithDuration:0.5 animations:^{
+            CGAffineTransform transform=CGAffineTransformScale(self.view.transform, 10, 10);
+            self.view.transform=transform;
+            self.view.alpha=0;
+            
+        } completion:^(BOOL finished) {
+            [[NSNotificationCenter defaultCenter]postNotificationName:LoginSuccessNotificationName object:nil];
+        }];
         
-    } completion:^(BOOL finished) {
-           [[NSNotificationCenter defaultCenter]postNotificationName:LoginSuccessNotificationName object:nil];
-    }];
- 
+        [[NSUserDefaults standardUserDefaults] setObject:tfUserName.text forKey:LoginUserNameKey];
+        [[NSUserDefaults standardUserDefaults] setObject:tfPassword.text forKey:LoginUserPasswordKey];
+    }
+
+}
+
+-(void)initFieldViewValues{
+    NSString*userName=[[NSUserDefaults standardUserDefaults] objectForKey:LoginUserNameKey];
+    if (0!=userName.length) {
+        tfUserName.text=userName;
+        tfPassword.text=[[NSUserDefaults standardUserDefaults] objectForKey:LoginUserPasswordKey];
+    }
+    return;
+}
+
+-(BOOL)isAuthenticated{
+    if ([[tfUserName.text uppercaseString] isEqualToString:[AdminUserName uppercaseString]]) {
+        if ([tfPassword.text isEqualToString:AdminPassword]) {
+            return YES;
+        }
+    }
+    if ([[tfUserName.text uppercaseString] isEqualToString:[UserUserName uppercaseString]]) {
+        if ([tfPassword.text isEqualToString:UserPassword]) {
+            return YES;
+        }
+    }
+    return NO;
+    
 }
 
 @end

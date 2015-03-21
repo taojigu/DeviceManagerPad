@@ -18,8 +18,10 @@
 #import "ProjectionCommandControl.h"
 #import "StereoCommandControl.h"
 #import "SoftwareCommandControl.h"
+#import "UserManagement.h"
 
 #import "CoreDataAdaptor.h"
+#import "CoreDateTypeUtility.h"
 
 
 @interface MasterViewController ()
@@ -57,16 +59,23 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     NSIndexPath*indexPath=[self.tableView indexPathForSelectedRow];
+    NSString*loginUserName=[[NSUserDefaults standardUserDefaults]objectForKey:LoginUserNameKey];
+    NSAssert(loginUserName.length>0, @"no login user");
+    BOOL editable=[loginUserName isEqualToString:AdminUserName];
     UINavigationController*navi=(UINavigationController*)segue.destinationViewController;
     if (1==indexPath.section&&0==indexPath.row) {
         SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
         stvc.deviceType=DeviceTypeCluster;
+        stvc.title=[CoreDateTypeUtility titleForDeviceType:stvc.deviceType];
+        stvc.editable=editable;
         MainCommandControl*mainControl=[[MainCommandControl alloc]init];
         stvc.communication=mainControl;
         return;
     }
     if (1==indexPath.section&&1==indexPath.row) {
         SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
+        stvc.title=[CoreDateTypeUtility titleForDeviceType:stvc.deviceType];
+        stvc.editable=editable;
         stvc.deviceType=DeviceTypeProjection;
         ProjectionCommandControl*prjControl=[[ProjectionCommandControl alloc]init];
         stvc.communication=prjControl;
@@ -74,7 +83,9 @@
     }
     if (1==indexPath.section&&3==indexPath.row) {
         SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
+        stvc.title=[CoreDateTypeUtility titleForDeviceType:stvc.deviceType];
         stvc.deviceType=DeviceTypeSoftware;
+        stvc.editable=editable;
         SoftwareCommandControl*scc=[[SoftwareCommandControl alloc]init];
         stvc.communication=scc;
         return;

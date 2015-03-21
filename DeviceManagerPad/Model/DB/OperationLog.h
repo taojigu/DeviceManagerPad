@@ -15,7 +15,8 @@
 
 @interface OperationLog : NSManagedObject
 
-@property (nonatomic, retain) NSString * command;
+@property (nonatomic, retain) NSString * commandType;
+@property(nonatomic,retain) NSString*commandText;
 @property (nonatomic, retain) NSString * user;
 @property (nonatomic, retain) NSDate * dateTime;
 @property(nonatomic,retain)NSString*deviceIP;

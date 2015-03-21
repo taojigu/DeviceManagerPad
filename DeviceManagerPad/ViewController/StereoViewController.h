@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PCommunication.h"
 
 @interface StereoViewController : UIViewController
+
+@property(nonatomic,strong)id<PCommunicaion>communication;
+@property(nonatomic,assign)BOOL editable;
 
 @end

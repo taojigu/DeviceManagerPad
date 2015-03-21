@@ -14,5 +14,6 @@
 @interface StartViewController : UIViewController
 
 @property(nonatomic,strong)id<PCommunicaion>communication;
+@property(nonatomic,assign)BOOL editable;
 
 @end

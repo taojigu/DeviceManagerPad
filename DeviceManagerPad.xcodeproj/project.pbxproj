@@ -80,7 +80,7 @@
 		164312151AB67DA000DFEA7D /* SwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwitchCell.m; path = UIView/Cell/SwitchCell.m; sourceTree = "<group>"; };
 		164312171AB6BB6700DFEA7D /* CoreDateTypeUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDateTypeUtility.h; path = Model/DB/CoreDateTypeUtility.h; sourceTree = "<group>"; };
 		164312181AB6BB6700DFEA7D /* CoreDateTypeUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDateTypeUtility.m; path = Model/DB/CoreDateTypeUtility.m; sourceTree = "<group>"; };
-		1683C3091AAADE9300C139CF /* DeviceManagerPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeviceManagerPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1683C3091AAADE9300C139CF /* 设备管家.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "设备管家.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1683C30D1AAADE9300C139CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1683C30E1AAADE9300C139CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1683C3101AAADE9300C139CF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -144,6 +144,7 @@
 		16AE83D41AB83CF600F3FE63 /* OperationLogVIewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OperationLogVIewController.m; path = ViewController/OperationLogVIewController.m; sourceTree = "<group>"; };
 		16AE83D61AB9A12E00F3FE63 /* StereoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StereoViewController.h; path = ViewController/StereoViewController.h; sourceTree = "<group>"; };
 		16AE83D71AB9A12E00F3FE63 /* StereoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StereoViewController.m; path = ViewController/StereoViewController.m; sourceTree = "<group>"; };
+		16B5E2091ABD293A00D098B3 /* UserManagement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UserManagement.h; path = Const/UserManagement.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,7 +209,7 @@
 		1683C30A1AAADE9300C139CF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1683C3091AAADE9300C139CF /* DeviceManagerPad.app */,
+				1683C3091AAADE9300C139CF /* 设备管家.app */,
 				1683C3251AAADE9300C139CF /* DeviceManagerPadTests.xctest */,
 			);
 			name = Products;
@@ -344,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				1683C3861AAD494800C139CF /* GlobalNotification.h */,
+				16B5E2091ABD293A00D098B3 /* UserManagement.h */,
 			);
 			name = Const;
 			sourceTree = "<group>";
@@ -398,7 +400,7 @@
 			);
 			name = DeviceManagerPad;
 			productName = DeviceManagerPad;
-			productReference = 1683C3091AAADE9300C139CF /* DeviceManagerPad.app */;
+			productReference = 1683C3091AAADE9300C139CF /* 设备管家.app */;
 			productType = "com.apple.product-type.application";
 		};
 		1683C3241AAADE9300C139CF /* DeviceManagerPadTests */ = {
@@ -644,7 +646,7 @@
 				INFOPLIST_FILE = DeviceManagerPad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "设备管家";
 			};
 			name = Debug;
 		};
@@ -655,7 +657,7 @@
 				INFOPLIST_FILE = DeviceManagerPad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "设备管家";
 			};
 			name = Release;
 		};

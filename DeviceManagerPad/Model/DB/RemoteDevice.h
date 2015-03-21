@@ -18,8 +18,17 @@
 typedef NS_ENUM(NSInteger, DeviceType) {
     DeviceTypeCluster=1,
     DeviceTypeSoftware=2,
-    DeviceTypeProjection=3
+    DeviceTypeProjection=3,
+    DeviceTypeAll=4
 };
+
+
+static NSString*const DeviceCommandTypePowerOn=@"PowerOn";
+static NSString*const DeviceCommandTypePowerOff=@"PowerOff";
+static NSString*const DeviceCommandTypePowerOnAll=@"PowerOnAll";
+static NSString*const DeviceCommandTypePowerOfAll=@"PowerOffAll";
+static NSString*const DeviceCommandTypeLogin=@"Login";
+
 
 
 @interface RemoteDevice : NSManagedObject

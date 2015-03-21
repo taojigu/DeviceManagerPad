@@ -69,6 +69,8 @@
         [self.delegate remoteDeviceEditCanceled:self];
     }
     
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 #pragma mark -- private messages
 
@@ -101,16 +103,9 @@
     self.navigationItem.rightBarButtonItem=doneItem;
     
     UIBarButtonItem*cancelItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonClicked:)];
-    self.navigationItem.leftBarButtonItem=cancelItem;
-    
-    
-    
-    if (self.detailType==DetailTypeEdit) {
-        
-    }
-    else{
-        
-    }
+    //self.navigationItem.leftBarButtonItem=cancelItem;
+
+
 }
 
 @end

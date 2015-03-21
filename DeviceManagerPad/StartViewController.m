@@ -20,6 +20,7 @@
 
 
 @synthesize communication;
+@synthesize editable;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
