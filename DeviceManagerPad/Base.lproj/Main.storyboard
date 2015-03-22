@@ -987,24 +987,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="开始界面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlU-KI-mYQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开始界面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlU-KI-mYQ">
                                 <rect key="frame" x="207" y="95" width="186" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="186" id="8Fk-JF-tVd"/>
+                                    <constraint firstAttribute="height" constant="29" id="ylf-VQ-dpM"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="本系统提供设备监视和控制功能，具体功能点包括：设备信息显示，设备软件控制，日志跟踪等功能点" translatesAutoresizingMaskIntoConstraints="NO" id="ruB-U6-KY4">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="本系统提供设备监视和控制功能，具体功能点包括：设备信息显示，设备软件控制，日志跟踪等功能点" translatesAutoresizingMaskIntoConstraints="NO" id="ruB-U6-KY4">
                                 <rect key="frame" x="134" y="191" width="332" height="96"/>
                                 <color key="backgroundColor" red="0.38015720490082194" green="0.94270115461704551" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="332" id="GAr-uf-jw2"/>
+                                    <constraint firstAttribute="height" constant="96" id="U4Z-Bh-RfU"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9v-j1-Wob">
-                                <rect key="frame" x="178" y="405" width="46" height="30"/>
+                                <rect key="frame" x="178" y="405" width="71" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="BLg-6f-boJ"/>
+                                    <constraint firstAttribute="width" constant="71" id="and-Bg-VTi"/>
                                 </constraints>
-                                <state key="normal" title="启动">
+                                <state key="normal" title="启动所有">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1012,11 +1020,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axX-jg-GAG">
-                                <rect key="frame" x="398" y="405" width="46" height="30"/>
+                                <rect key="frame" x="372" y="405" width="68" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="fL2-El-fVX"/>
+                                    <constraint firstAttribute="width" constant="68" id="iU5-un-pyl"/>
                                 </constraints>
-                                <state key="normal" title="关闭">
+                                <state key="normal" title="关闭所有">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1026,10 +1034,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="axX-jg-GAG" secondAttribute="trailing" constant="156" id="3KV-W6-Vyc"/>
-                            <constraint firstItem="t9v-j1-Wob" firstAttribute="baseline" secondItem="axX-jg-GAG" secondAttribute="baseline" id="7Xn-55-zID"/>
-                            <constraint firstItem="18t-1E-wJN" firstAttribute="top" secondItem="t9v-j1-Wob" secondAttribute="bottom" constant="165" id="OT2-CU-tcd"/>
-                            <constraint firstItem="t9v-j1-Wob" firstAttribute="leading" secondItem="sx0-py-QrD" secondAttribute="leading" constant="178" id="t4n-3v-Zed"/>
+                            <constraint firstItem="t9v-j1-Wob" firstAttribute="leading" secondItem="sx0-py-QrD" secondAttribute="leading" constant="178" id="9lC-2V-Diu"/>
+                            <constraint firstItem="axX-jg-GAG" firstAttribute="baseline" secondItem="t9v-j1-Wob" secondAttribute="baseline" id="E2N-rA-D1P"/>
+                            <constraint firstItem="IlU-KI-mYQ" firstAttribute="top" secondItem="h1G-1t-uXp" secondAttribute="bottom" constant="31" id="Ia1-Io-dkd"/>
+                            <constraint firstItem="ruB-U6-KY4" firstAttribute="top" secondItem="IlU-KI-mYQ" secondAttribute="bottom" constant="67" id="WOX-Df-1QC"/>
+                            <constraint firstItem="18t-1E-wJN" firstAttribute="top" secondItem="t9v-j1-Wob" secondAttribute="bottom" constant="165" id="adi-1Y-n5q"/>
+                            <constraint firstItem="IlU-KI-mYQ" firstAttribute="centerX" secondItem="ruB-U6-KY4" secondAttribute="centerX" id="p8q-cE-Eae"/>
+                            <constraint firstAttribute="trailing" secondItem="axX-jg-GAG" secondAttribute="trailing" constant="160" id="z9L-je-bqK"/>
+                            <constraint firstItem="ruB-U6-KY4" firstAttribute="centerX" secondItem="sx0-py-QrD" secondAttribute="centerX" id="zpA-No-fQt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="htT-7O-KSc"/>

@@ -88,6 +88,9 @@
     if (indexPath.section==SettingSection) {
         [self processSettingSegue:segue indexPath:indexPath];
     }
+    if (indexPath.section==StartSection) {
+        [self processStartSegue:segue];
+    }
     
 }
 
@@ -134,6 +137,13 @@
 
 
 #pragma mark -- privte messages
+
+-(void)processStartSegue:(UIStoryboardSegue*)segue{
+    UINavigationController*navi=(UINavigationController*)segue.destinationViewController;
+    StartViewController*startvc=(StartViewController*)navi.topViewController;
+    startvc.communication=[[MainCommandControl alloc]initWithUdpSocket:self.socketController.udpSocket];
+    
+}
 - (void)processClusterSwitchViewController:(UINavigationController *)navi editable:(BOOL)editable defaultSetting:(NSUserDefaults *)defaultSetting {
     SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
     stvc.deviceType=DeviceTypeCluster;

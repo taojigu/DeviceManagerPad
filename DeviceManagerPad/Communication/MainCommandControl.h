@@ -10,9 +10,13 @@
 #import "PCommunication.h"
 #import "GCDAsyncUdpSocket.h"
 
-@interface MainCommandControl : NSObject<PCommunicaion>
+@interface MainCommandControl : NSObject<PCommunicaion>{
+    
+}
 
 
 @property(nonatomic,strong)GCDAsyncUdpSocket*udpSocket;
+
+-(instancetype)initWithUdpSocket:(GCDAsyncUdpSocket*)socket;
 
 @end
