@@ -24,6 +24,7 @@
 #import "DeviceCommunication.h"
 #import "SwitchSocketSettingController.h"
 #import "StereoSocketSettingViewController.h"
+#import "StereoViewController.h"
 
 #define StartSection 0
 #define ManagementSection 1
@@ -36,7 +37,10 @@
 #define SoftwareRow 3
 
 
-@interface MasterViewController ()
+@interface MasterViewController (){
+    
+}
+@property(nonatomic,strong)StereoViewController*stereoViewController;
 
 
 @end
@@ -44,6 +48,8 @@
 @implementation MasterViewController
 
 @synthesize socketController;
+
+@synthesize stereoViewController;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -71,80 +77,6 @@
 
 #pragma mark - Segues
 
-- (void)processManagementSegue:(UIStoryboardSegue *)segue indexPath:(NSIndexPath *)indexPath {
-    NSString*loginUserName=[[NSUserDefaults standardUserDefaults]objectForKey:LoginUserNameKey];
-    NSAssert(loginUserName.length>0, @"no login user");
-    NSUserDefaults*defaultSetting=[NSUserDefaults standardUserDefaults];
-    BOOL editable=[loginUserName isEqualToString:AdminUserName];
-    UINavigationController*navi=(UINavigationController*)segue.destinationViewController;
-    if (1==indexPath.section&&0==indexPath.row) {
-        SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
-        stvc.deviceType=DeviceTypeCluster;
-        stvc.title=[CoreDateTypeUtility titleForDeviceType:stvc.deviceType];
-        stvc.editable=editable;
-        SwitchCommandControl*swtcc=[[SwitchCommandControl alloc]initWithUdpSocket:self.socketController.udpSocket];
-        swtcc.powerOnCommand=[defaultSetting objectForKey:ClusterPowerOnKey];
-        swtcc.powerOffCommand=[defaultSetting objectForKey:ClusterPowerOffKey];
-        stvc.communication=swtcc;
-        return;
-    }
-    if (1==indexPath.section&&1==indexPath.row) {
-        SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
-        stvc.deviceType=DeviceTypeProjection;
-        stvc.title=[CoreDateTypeUtility titleForDeviceType:stvc.deviceType];
-        stvc.editable=editable;
-        SwitchCommandControl*swtcc=[[SwitchCommandControl alloc]initWithUdpSocket:self.socketController.udpSocket];
-        swtcc.powerOnCommand=[defaultSetting objectForKey:ProjectionPowerOnKey];
-        swtcc.powerOffCommand=[defaultSetting objectForKey:ProjectionPowerOffKey];
-        stvc.communication=swtcc;
-        return;
-    }
-    if (1==indexPath.section&&3==indexPath.row) {
-        SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
-        stvc.deviceType=DeviceTypeSoftware;
-        stvc.title=[CoreDateTypeUtility titleForDeviceType:stvc.deviceType];
-       
-        stvc.editable=editable;
-        SwitchCommandControl*swtcc=[[SwitchCommandControl alloc]initWithUdpSocket:self.socketController.udpSocket];
-        swtcc.powerOnCommand=[defaultSetting objectForKey:ProjectionPowerOnKey];
-        swtcc.powerOffCommand=[defaultSetting objectForKey:ProjectionPowerOffKey];
-        stvc.communication=swtcc;
-        return;
-    }
-    if (0==indexPath.section) {
-        
-        //StartViewController*stvc=(StartViewController*)navi.topViewController;
-        
-        return;
-    }
-}
--(void)processSettingSegue:(UIStoryboardSegue *)segue indexPath:(NSIndexPath*)indexPath{
-    UINavigationController*navi=(UINavigationController*)segue.destinationViewController;
-    navi.topViewController.title=[self titleForIndexPath:indexPath];
-    if ([navi.topViewController class]==[SwitchSocketSettingController class]) {
-        SwitchSocketSettingController*sssvc=(SwitchSocketSettingController*)navi.topViewController;
-        if (ClusterRow==indexPath.row) {
-            sssvc.powerOnCommandKey=ClusterPowerOnKey;
-            sssvc.powerOffCommandKey=ClusterPowerOffKey;
-            
-            return;
-        }
-        if (ProjectionRow==indexPath.row) {
-            sssvc.powerOnCommandKey=ProjectionPowerOnKey;
-            sssvc.powerOffCommandKey=ProjectionPowerOffKey;
-            return;
-        }
-        if (SoftwareRow==indexPath.row) {
-            sssvc.powerOnCommandKey=SoftwarePowerOnKey;
-            sssvc.powerOffCommandKey=SoftwarePowerOffKey;
-        }
-        return;
-    }
-    if ([navi.topViewController class]==[StereoSocketSettingViewController class]) {
-        
-    }
-    
-}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
@@ -202,6 +134,91 @@
 
 
 #pragma mark -- privte messages
+- (void)processClusterSwitchViewController:(UINavigationController *)navi editable:(BOOL)editable defaultSetting:(NSUserDefaults *)defaultSetting {
+    SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
+    stvc.deviceType=DeviceTypeCluster;
+    stvc.title=[CoreDateTypeUtility titleForDeviceType:stvc.deviceType];
+    stvc.editable=editable;
+    SwitchCommandControl*swtcc=[[SwitchCommandControl alloc]initWithUdpSocket:self.socketController.udpSocket];
+    swtcc.powerOnCommand=[defaultSetting objectForKey:ClusterPowerOnKey];
+    swtcc.powerOffCommand=[defaultSetting objectForKey:ClusterPowerOffKey];
+    stvc.communication=swtcc;
+    return;
+    
+}
+
+- (void)processProjectSwitchViewController:(UINavigationController *)navi editable:(BOOL)editable defaultSetting:(NSUserDefaults *)defaultSetting {
+    SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
+    stvc.deviceType=DeviceTypeProjection;
+    stvc.title=[CoreDateTypeUtility titleForDeviceType:stvc.deviceType];
+    stvc.editable=editable;
+    SwitchCommandControl*swtcc=[[SwitchCommandControl alloc]initWithUdpSocket:self.socketController.udpSocket];
+    swtcc.powerOnCommand=[defaultSetting objectForKey:ProjectionPowerOnKey];
+    swtcc.powerOffCommand=[defaultSetting objectForKey:ProjectionPowerOffKey];
+    stvc.communication=swtcc;
+}
+
+- (void)processSoftwareSwitchViewController:(UINavigationController *)navi editable:(BOOL)editable defaultSetting:(NSUserDefaults *)defaultSetting {
+    SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
+    stvc.deviceType=DeviceTypeSoftware;
+    stvc.title=[CoreDateTypeUtility titleForDeviceType:stvc.deviceType];
+    
+    stvc.editable=editable;
+    SwitchCommandControl*swtcc=[[SwitchCommandControl alloc]initWithUdpSocket:self.socketController.udpSocket];
+    swtcc.powerOnCommand=[defaultSetting objectForKey:ProjectionPowerOnKey];
+    swtcc.powerOffCommand=[defaultSetting objectForKey:ProjectionPowerOffKey];
+    stvc.communication=swtcc;
+}
+
+- (void)processManagementSegue:(UIStoryboardSegue *)segue indexPath:(NSIndexPath *)indexPath {
+    NSString*loginUserName=[[NSUserDefaults standardUserDefaults]objectForKey:LoginUserNameKey];
+    NSAssert(loginUserName.length>0, @"no login user");
+    NSUserDefaults*defaultSetting=[NSUserDefaults standardUserDefaults];
+    BOOL editable=[loginUserName isEqualToString:AdminUserName];
+    UINavigationController*navi=(UINavigationController*)segue.destinationViewController;
+    if (ManagementSection==indexPath.section&&ClusterRow==indexPath.row) {
+        [self processClusterSwitchViewController:navi editable:editable defaultSetting:defaultSetting];
+        return;
+    }
+    if (ManagementSection==indexPath.section&&ProjectionRow==indexPath.row) {
+        [self processProjectSwitchViewController:navi editable:editable defaultSetting:defaultSetting];
+        return;
+    }
+    if (ManagementSection==indexPath.section&&SoftwareRow==indexPath.row) {
+        [self processSoftwareSwitchViewController:navi editable:editable defaultSetting:defaultSetting];
+        return;
+    }
+    if (1==indexPath.section) {
+        StereoViewController*srovc=(StereoViewController*)navi.topViewController;
+        srovc.communication=[[StereoCommandControl alloc]initWithUdpSocket:self.socketController.udpSocket];
+        srovc.editable=editable;
+    }
+}
+-(void)processSettingSegue:(UIStoryboardSegue *)segue indexPath:(NSIndexPath*)indexPath{
+    UINavigationController*navi=(UINavigationController*)segue.destinationViewController;
+    navi.topViewController.title=[self titleForIndexPath:indexPath];
+    if ([navi.topViewController class]==[SwitchSocketSettingController class]) {
+        SwitchSocketSettingController*sssvc=(SwitchSocketSettingController*)navi.topViewController;
+        if (ClusterRow==indexPath.row) {
+            sssvc.powerOnCommandKey=ClusterPowerOnKey;
+            sssvc.powerOffCommandKey=ClusterPowerOffKey;
+            
+            return;
+        }
+        if (ProjectionRow==indexPath.row) {
+            sssvc.powerOnCommandKey=ProjectionPowerOnKey;
+            sssvc.powerOffCommandKey=ProjectionPowerOffKey;
+            return;
+        }
+        if (SoftwareRow==indexPath.row) {
+            sssvc.powerOnCommandKey=SoftwarePowerOnKey;
+            sssvc.powerOffCommandKey=SoftwarePowerOffKey;
+        }
+        return;
+    }
+    
+}
+
 
 -(UITableViewCell*)socketSettincCell:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath{
     
@@ -216,11 +233,21 @@
             break;
     }
     
-    
-    
-    
-    
     return nil;
+}
+
+-(StereoViewController*)stereoViewController:(BOOL)edtable{
+    if (nil!=self.stereoViewController) {
+        return self.stereoViewController;
+    }
+    self.stereoViewController=[[StereoViewController alloc]init];
+    self.stereoViewController.editable=edtable;
+    self.stereoViewController.title=@"音响控制";
+
+    StereoCommandControl*commandCtrl=[[StereoCommandControl alloc]initWithUdpSocket:self.socketController.udpSocket];
+    self.stereoViewController.communication=commandCtrl;
+    return  self.stereoViewController;
+    
 }
 
 -(UITableViewCell*)switchSocketSettingCell:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath{

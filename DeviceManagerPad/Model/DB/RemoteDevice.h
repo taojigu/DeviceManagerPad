@@ -19,7 +19,8 @@ typedef NS_ENUM(NSInteger, DeviceType) {
     DeviceTypeCluster=1,
     DeviceTypeSoftware=2,
     DeviceTypeProjection=3,
-    DeviceTypeAll=4
+    DeviceTypeAll=4,
+    DeviceTypeStereo=5
 };
 
 

@@ -10,8 +10,13 @@
 
 #import "PCommunication.h"
 
-@interface StereoCommandControl : NSObject<PCommunicaion>
+@interface StereoCommandControl : NSObject<PCommunicaion>{
 
+}
 
 @property(nonatomic,strong)GCDAsyncUdpSocket*udpSocket;
+
+
+-(instancetype)initWithUdpSocket:(GCDAsyncUdpSocket*)udpSocket;
+
 @end
