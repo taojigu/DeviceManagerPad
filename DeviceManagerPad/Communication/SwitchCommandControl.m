@@ -24,13 +24,18 @@
 }
 
 -(void)sendPowerOn:(NSString*)hostAddress port:(NSInteger)port{
+    
+
+    NSLog(@"PowerOn Command is %@",self.powerOnCommand);
     NSData*powerOnData=[SocketUtility hexDataFromNSString:self.powerOnCommand];
-    [self.udpSocket sendData:powerOnData toHost:hostAddress port:port withTimeout:-1 tag:PowerOnTag];
+    NSString* powerOnString = [[NSString alloc]initWithData:powerOnData encoding:NSUTF8StringEncoding];
+    NSLog(@"Power on commnand Data string is:%@",powerOnString);
+    [self.udpSocket sendData:powerOnData toHost:hostAddress port:port withTimeout:2 tag:PowerOnTag];
 }
 -(void)sendPowerOff:(NSString*)hostAddress port:(NSInteger)port{
     
     NSData*powerOnData=[SocketUtility hexDataFromNSString:self.powerOffCommand];
-    [self.udpSocket sendData:powerOnData toHost:hostAddress port:port withTimeout:-1 tag:PowerOnTag];
+    [self.udpSocket sendData:powerOnData toHost:hostAddress port:port withTimeout:2 tag:PowerOnTag];
 }
 
 

@@ -25,6 +25,9 @@
 #import "SwitchSocketSettingController.h"
 #import "StereoSocketSettingViewController.h"
 #import "StereoViewController.h"
+#import "AsyncSocketController.h"
+#import "TcpSwitchControl.h"
+
 
 #define StartSection 0
 #define ManagementSection 1
@@ -41,6 +44,9 @@
     
 }
 @property(nonatomic,strong)StereoViewController*stereoViewController;
+
+
+//@property(nonatomic,strong)GCDAsyncSocket*tcpSocket;
 
 
 @end
@@ -63,6 +69,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.socketController=[[AsyncUdpSocketController alloc]init];
+    self.tcpSocketController =[[AsyncSocketController alloc]init];
+    
 
     [[CoreDataAdaptor instance] saveCurrentChanges:nil];
 
@@ -96,8 +104,19 @@
 
 #pragma mark - Table View
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    NSString*loginUserName=[[NSUserDefaults standardUserDefaults]objectForKey:LoginUserNameKey];
+    BOOL editable=[loginUserName isEqualToString:AdminUserName];
+    if (editable)
+    {
+        return 4;
+    }
+    else
+    {
+        return 3;
+    }
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -150,6 +169,7 @@
     stvc.title=[CoreDateTypeUtility titleForDeviceType:stvc.deviceType];
     stvc.editable=editable;
     SwitchCommandControl*swtcc=[[SwitchCommandControl alloc]initWithUdpSocket:self.socketController.udpSocket];
+    
     swtcc.powerOnCommand=[defaultSetting objectForKey:ClusterPowerOnKey];
     swtcc.powerOffCommand=[defaultSetting objectForKey:ClusterPowerOffKey];
     stvc.communication=swtcc;
@@ -162,6 +182,12 @@
     stvc.deviceType=DeviceTypeProjection;
     stvc.title=[CoreDateTypeUtility titleForDeviceType:stvc.deviceType];
     stvc.editable=editable;
+    
+    //TcpSwitchControl*tcpSwtichCtrl =[[TcpSwitchControl alloc]initWithTcpSocket:self.tcpSocketController.tcpSocket];
+    
+    //tcpSwtichCtrl.powerOnCommand=[defaultSetting objectForKey:ProjectionPowerOnKey];
+    //tcpSwtichCtrl.powerOffCommand=[defaultSetting objectForKey:ProjectionPowerOffKey];
+
     SwitchCommandControl*swtcc=[[SwitchCommandControl alloc]initWithUdpSocket:self.socketController.udpSocket];
     swtcc.powerOnCommand=[defaultSetting objectForKey:ProjectionPowerOnKey];
     swtcc.powerOffCommand=[defaultSetting objectForKey:ProjectionPowerOffKey];

@@ -21,15 +21,13 @@
       "scale" : "2x"
     },
     {
-      "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "图标.png",
+      "size" : "76x76",
       "scale" : "1x"
     },
     {
-      "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "图标152.png",
+      "size" : "76x76",
       "scale" : "2x"
     }
   ],

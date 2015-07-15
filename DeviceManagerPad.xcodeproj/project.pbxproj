@@ -23,7 +23,6 @@
 		1683C31B1AAADE9300C139CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1683C3191AAADE9300C139CF /* Main.storyboard */; };
 		1683C31D1AAADE9300C139CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1683C31C1AAADE9300C139CF /* Images.xcassets */; };
 		1683C3201AAADE9300C139CF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1683C31E1AAADE9300C139CF /* LaunchScreen.xib */; };
-		1683C32C1AAADE9300C139CF /* DeviceManagerPadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C32B1AAADE9300C139CF /* DeviceManagerPadTests.m */; };
 		1683C33A1AAADF7E00C139CF /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3391AAADF7E00C139CF /* TestViewController.m */; };
 		1683C33F1AAC49D900C139CF /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C33E1AAC49D900C139CF /* StartViewController.m */; };
 		1683C3421AAC49FC00C139CF /* SwitchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3411AAC49FC00C139CF /* SwitchTableViewController.m */; };
@@ -49,6 +48,8 @@
 		16B5E2131ABD6FFF00D098B3 /* SocketUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B5E2121ABD6FFF00D098B3 /* SocketUtility.m */; };
 		16B5E2161ABD718600D098B3 /* SwitchCommandControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B5E2151ABD718600D098B3 /* SwitchCommandControl.m */; };
 		16B5E2191ABD8F3400D098B3 /* StereoSocketSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B5E2181ABD8F3400D098B3 /* StereoSocketSettingViewController.m */; };
+		CC39575C1B5596AD0008F75C /* TcpSwitchControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CC39575B1B5596AD0008F75C /* TcpSwitchControl.m */; };
+		CC39575F1B55AE7A0008F75C /* AsyncSocketController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC39575E1B55AE7A0008F75C /* AsyncSocketController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +150,10 @@
 		16B5E2151ABD718600D098B3 /* SwitchCommandControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwitchCommandControl.m; path = Communication/SwitchCommandControl.m; sourceTree = "<group>"; };
 		16B5E2171ABD8F3400D098B3 /* StereoSocketSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StereoSocketSettingViewController.h; path = ViewController/StereoSocketSettingViewController.h; sourceTree = "<group>"; };
 		16B5E2181ABD8F3400D098B3 /* StereoSocketSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StereoSocketSettingViewController.m; path = ViewController/StereoSocketSettingViewController.m; sourceTree = "<group>"; };
+		CC39575A1B5596AD0008F75C /* TcpSwitchControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TcpSwitchControl.h; path = Communication/TcpSwitchControl.h; sourceTree = "<group>"; };
+		CC39575B1B5596AD0008F75C /* TcpSwitchControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TcpSwitchControl.m; path = Communication/TcpSwitchControl.m; sourceTree = "<group>"; };
+		CC39575D1B55AE7A0008F75C /* AsyncSocketController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocketController.h; path = Util/GCDSocket/AsyncSocketController.h; sourceTree = "<group>"; };
+		CC39575E1B55AE7A0008F75C /* AsyncSocketController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocketController.m; path = Util/GCDSocket/AsyncSocketController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,6 +377,8 @@
 				164311FA1AB1415900DFEA7D /* AsyncUdpSocketController.m */,
 				16B5E2111ABD6FFF00D098B3 /* SocketUtility.h */,
 				16B5E2121ABD6FFF00D098B3 /* SocketUtility.m */,
+				CC39575D1B55AE7A0008F75C /* AsyncSocketController.h */,
+				CC39575E1B55AE7A0008F75C /* AsyncSocketController.m */,
 			);
 			name = GCDSocket;
 			sourceTree = "<group>";
@@ -386,6 +393,8 @@
 				16AE83D11AB7D23400F3FE63 /* StereoCommandControl.m */,
 				16B5E2141ABD718600D098B3 /* SwitchCommandControl.h */,
 				16B5E2151ABD718600D098B3 /* SwitchCommandControl.m */,
+				CC39575A1B5596AD0008F75C /* TcpSwitchControl.h */,
+				CC39575B1B5596AD0008F75C /* TcpSwitchControl.m */,
 			);
 			name = Communication;
 			sourceTree = "<group>";
@@ -439,6 +448,7 @@
 				TargetAttributes = {
 					1683C3081AAADE9300C139CF = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = UMRACKG926;
 					};
 					1683C3241AAADE9300C139CF = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -493,6 +503,7 @@
 				16B5E2191ABD8F3400D098B3 /* StereoSocketSettingViewController.m in Sources */,
 				16B5E20D1ABD5C9300D098B3 /* SwitchSocketSettingController.m in Sources */,
 				1643120F1AB571B200DFEA7D /* RemoteDevice.m in Sources */,
+				CC39575C1B5596AD0008F75C /* TcpSwitchControl.m in Sources */,
 				1683C38D1AAD87F200C139CF /* GCDAsyncUdpSocket.m in Sources */,
 				1683C3691AAC575D00C139CF /* DataResult.m in Sources */,
 				1683C35E1AAC503E00C139CF /* AFURLConnectionOperation.m in Sources */,
@@ -526,6 +537,7 @@
 				1683C35A1AAC503E00C139CF /* AFHTTPRequestOperationManager.m in Sources */,
 				164312191AB6BB6700DFEA7D /* CoreDateTypeUtility.m in Sources */,
 				16AE83D21AB7D23400F3FE63 /* StereoCommandControl.m in Sources */,
+				CC39575F1B55AE7A0008F75C /* AsyncSocketController.m in Sources */,
 				16AE83D81AB9A12E00F3FE63 /* StereoViewController.m in Sources */,
 				16B5E2101ABD602600D098B3 /* FakeSocketFactory.m in Sources */,
 			);
@@ -535,7 +547,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1683C32C1AAADE9300C139CF /* DeviceManagerPadTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,6 +662,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = DeviceManagerPad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -662,6 +675,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = DeviceManagerPad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

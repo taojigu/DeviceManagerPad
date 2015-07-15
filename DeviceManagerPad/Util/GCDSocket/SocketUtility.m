@@ -15,6 +15,7 @@
     if (command.length==0) {
         return nil;
     }
+    
     command = [command stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSMutableData *commandToSend= [[NSMutableData alloc] init];
     unsigned char whole_byte;

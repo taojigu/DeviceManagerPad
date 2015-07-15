@@ -1,6 +1,7 @@
 
 
 #import "GCDAsyncUdpSocket.h"
+#import "GCDAsyncSocket.h"
 @protocol PCommunicaion <NSObject>
 
 @required
@@ -13,5 +14,6 @@
 
 
 @property(nonatomic,strong)GCDAsyncUdpSocket*udpSocket;
+@property(nonatomic,strong)GCDAsyncSocket*tcpSocket;
 
 @end

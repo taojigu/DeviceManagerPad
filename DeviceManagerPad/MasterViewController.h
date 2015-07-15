@@ -10,7 +10,7 @@
 
 @class DetailViewController;
 @class AsyncUdpSocketController;
-
+@class AsyncSocketController;
 
 @class GCDAsyncUdpSocket;
 
@@ -19,6 +19,7 @@
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 @property(nonatomic,strong)AsyncUdpSocketController*socketController;
+@property(nonatomic,strong)AsyncSocketController*tcpSocketController;
 
 @end
 
