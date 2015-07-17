@@ -31,7 +31,6 @@ static NSString*const DeviceCommandTypePowerOfAll=@"PowerOffAll";
 static NSString*const DeviceCommandTypeLogin=@"Login";
 
 
-
 @interface RemoteDevice : NSManagedObject
 
 @property (nonatomic, retain) NSString * deviceIP;
@@ -40,3 +39,9 @@ static NSString*const DeviceCommandTypeLogin=@"Login";
 @property (nonatomic, retain) NSNumber* type;
 
 @end
+
+
+typedef void(^DeviceCommnadBlock)(id sender, NSString*command, RemoteDevice*device) ;
+
+
+

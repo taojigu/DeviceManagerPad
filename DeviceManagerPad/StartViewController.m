@@ -13,6 +13,12 @@
 
 
 @interface StartViewController ()
+{
+    
+}
+
+@property(nonatomic,strong)IBOutlet UIButton*powerOnAllButton;
+@property(nonatomic,strong)IBOutlet UIButton*powerOffAllButton;
 
 @end
 
@@ -25,6 +31,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self customizeButton:self.powerOnAllButton];
+    //[self.powerOnAllButton setBackgroundColor:[UIColor redColor]];
+    [self customizeButton:self.powerOffAllButton];
+    //[self.powerOffAllButton setBackgroundColor:[UIColor greenColor]];
+}
+
+-(void)customizeButton:(UIButton*)button
+{
+    button.layer.cornerRadius = 50;
+    [button setBackgroundColor:[UIColor grayColor]];
 }
 
 - (void)didReceiveMemoryWarning {

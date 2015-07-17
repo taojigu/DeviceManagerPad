@@ -21,4 +21,7 @@
 @property(nonatomic,strong)id<PCommunicaion>communication;
 @property(nonatomic,assign)BOOL editable;
 
+@property(nonatomic,strong)DeviceCommnadBlock comandBlock;
+
+
 @end

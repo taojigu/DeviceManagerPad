@@ -50,6 +50,8 @@
 		16B5E2191ABD8F3400D098B3 /* StereoSocketSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B5E2181ABD8F3400D098B3 /* StereoSocketSettingViewController.m */; };
 		CC39575C1B5596AD0008F75C /* TcpSwitchControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CC39575B1B5596AD0008F75C /* TcpSwitchControl.m */; };
 		CC39575F1B55AE7A0008F75C /* AsyncSocketController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC39575E1B55AE7A0008F75C /* AsyncSocketController.m */; };
+		CCC43F791B58CEFE004A0C16 /* ProjectDeviceTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC43F781B58CEFE004A0C16 /* ProjectDeviceTVC.m */; };
+		CCC43F7D1B590711004A0C16 /* ProjectorSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC43F7C1B590711004A0C16 /* ProjectorSettingVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +156,10 @@
 		CC39575B1B5596AD0008F75C /* TcpSwitchControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TcpSwitchControl.m; path = Communication/TcpSwitchControl.m; sourceTree = "<group>"; };
 		CC39575D1B55AE7A0008F75C /* AsyncSocketController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocketController.h; path = Util/GCDSocket/AsyncSocketController.h; sourceTree = "<group>"; };
 		CC39575E1B55AE7A0008F75C /* AsyncSocketController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocketController.m; path = Util/GCDSocket/AsyncSocketController.m; sourceTree = "<group>"; };
+		CCC43F771B58CEFE004A0C16 /* ProjectDeviceTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectDeviceTVC.h; path = ViewController/ProjectTcp/ProjectDeviceTVC.h; sourceTree = "<group>"; };
+		CCC43F781B58CEFE004A0C16 /* ProjectDeviceTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectDeviceTVC.m; path = ViewController/ProjectTcp/ProjectDeviceTVC.m; sourceTree = "<group>"; };
+		CCC43F7B1B590711004A0C16 /* ProjectorSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectorSettingVC.h; path = ViewController/ProjectorSettingVC.h; sourceTree = "<group>"; };
+		CCC43F7C1B590711004A0C16 /* ProjectorSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectorSettingVC.m; path = ViewController/ProjectorSettingVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +284,8 @@
 		1683C33C1AAC49AD00C139CF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CCC43F7A1B5906E3004A0C16 /* Setting */,
+				CCC43F761B58CE90004A0C16 /* ProjectTcp */,
 				1683C33D1AAC49D900C139CF /* StartViewController.h */,
 				1683C33E1AAC49D900C139CF /* StartViewController.m */,
 				1683C3401AAC49FC00C139CF /* SwitchTableViewController.h */,
@@ -290,10 +298,6 @@
 				16AE83D41AB83CF600F3FE63 /* OperationLogVIewController.m */,
 				16AE83D61AB9A12E00F3FE63 /* StereoViewController.h */,
 				16AE83D71AB9A12E00F3FE63 /* StereoViewController.m */,
-				16B5E20B1ABD5C9300D098B3 /* SwitchSocketSettingController.h */,
-				16B5E20C1ABD5C9300D098B3 /* SwitchSocketSettingController.m */,
-				16B5E2171ABD8F3400D098B3 /* StereoSocketSettingViewController.h */,
-				16B5E2181ABD8F3400D098B3 /* StereoSocketSettingViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -397,6 +401,28 @@
 				CC39575B1B5596AD0008F75C /* TcpSwitchControl.m */,
 			);
 			name = Communication;
+			sourceTree = "<group>";
+		};
+		CCC43F761B58CE90004A0C16 /* ProjectTcp */ = {
+			isa = PBXGroup;
+			children = (
+				CCC43F771B58CEFE004A0C16 /* ProjectDeviceTVC.h */,
+				CCC43F781B58CEFE004A0C16 /* ProjectDeviceTVC.m */,
+			);
+			name = ProjectTcp;
+			sourceTree = "<group>";
+		};
+		CCC43F7A1B5906E3004A0C16 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				16B5E20B1ABD5C9300D098B3 /* SwitchSocketSettingController.h */,
+				16B5E20C1ABD5C9300D098B3 /* SwitchSocketSettingController.m */,
+				16B5E2171ABD8F3400D098B3 /* StereoSocketSettingViewController.h */,
+				16B5E2181ABD8F3400D098B3 /* StereoSocketSettingViewController.m */,
+				CCC43F7B1B590711004A0C16 /* ProjectorSettingVC.h */,
+				CCC43F7C1B590711004A0C16 /* ProjectorSettingVC.m */,
+			);
+			name = Setting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -514,12 +540,14 @@
 				1643120C1AB571B100DFEA7D /* OperationLog.m in Sources */,
 				1683C3151AAADE9300C139CF /* MasterViewController.m in Sources */,
 				1683C30F1AAADE9300C139CF /* main.m in Sources */,
+				CCC43F7D1B590711004A0C16 /* ProjectorSettingVC.m in Sources */,
 				1683C3601AAC503E00C139CF /* AFURLResponseSerialization.m in Sources */,
 				16B5E2131ABD6FFF00D098B3 /* SocketUtility.m in Sources */,
 				1683C33F1AAC49D900C139CF /* StartViewController.m in Sources */,
 				164311FB1AB1415900DFEA7D /* AsyncUdpSocketController.m in Sources */,
 				1683C35F1AAC503E00C139CF /* AFURLRequestSerialization.m in Sources */,
 				16B5E2161ABD718600D098B3 /* SwitchCommandControl.m in Sources */,
+				CCC43F791B58CEFE004A0C16 /* ProjectDeviceTVC.m in Sources */,
 				1683C35D1AAC503E00C139CF /* AFSecurityPolicy.m in Sources */,
 				1683C38C1AAD87F200C139CF /* GCDAsyncSocket.m in Sources */,
 				164312091AB56CE000DFEA7D /* CoreDataModel.xcdatamodeld in Sources */,
@@ -665,7 +693,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = DeviceManagerPad/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "设备管家";
 			};
@@ -678,7 +706,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = DeviceManagerPad/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "设备管家";
 			};

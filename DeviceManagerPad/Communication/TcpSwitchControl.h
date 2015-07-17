@@ -8,16 +8,24 @@
 
 #import <Foundation/Foundation.h>
 #import "PCommunication.h"
-@interface TcpSwitchControl : NSObject<PCommunicaion>
+@class RemoteDevice;
+
+@interface TcpSwitchControl : NSObject
 {
     
 }
 
+@property(nonatomic,strong)RemoteDevice*device;
 
--(instancetype)initWithTcpSocket:(GCDAsyncSocket*)tcpSockt;
-@property(nonatomic,strong)GCDAsyncSocket*tcpSocket;
+-(instancetype)initWithDevice:(RemoteDevice*)device;
+-(void)connectAndPowerOn:(RemoteDevice*)device;
+-(void)powerOnDevice:(RemoteDevice*)device;
 
 @property(nonatomic,strong)NSString*powerOnCommand;
+@property(nonatomic,strong)NSString*quickShotCommand;
 @property(nonatomic,strong)NSString*powerOffCommand;;
+
+
+
 
 @end

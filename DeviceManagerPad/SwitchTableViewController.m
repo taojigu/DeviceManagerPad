@@ -209,17 +209,28 @@
     NSString*userName=[[NSUserDefaults standardUserDefaults]objectForKey:LoginUserNameKey];
     if ([self sendAllSection]==btn.indexPath.section) {
         
-        for (RemoteDevice*dvc in self.devicArray) {
+        for (RemoteDevice*dvc in self.devicArray)
+        {
             [self.communication sendPowerOn:dvc.deviceIP port:dvc.port.integerValue];
         }
         NSString*deviceTypeName=[CoreDateTypeUtility titleForDeviceType:self.deviceType];
         NSString*commandText=[NSString stringWithFormat:@"发送 PowerON to all %@",deviceTypeName];
         [[CoreDataAdaptor instance] insertOperationLog:userName comandType:DeviceCommandTypePowerOnAll commandText:commandText dateTime:[NSDate date]];
     }
-    else{
+    else
+    {
+        
         RemoteDevice*dvc=[self.devicArray objectAtIndex:btn.indexPath.row];
-        [self.communication sendPowerOn:dvc.deviceIP port:dvc.port.integerValue];
-        [[CoreDataAdaptor instance] insertOperationLog:userName commandType:DeviceCommandTypePowerOn device:dvc dateTime:[NSDate date]];
+        if (nil!=self.comandBlock)
+        {
+            self.comandBlock(self,DeviceCommandTypePowerOn,dvc);
+        }
+        else
+        {
+
+            [self.communication sendPowerOn:dvc.deviceIP port:dvc.port.integerValue];
+            [[CoreDataAdaptor instance] insertOperationLog:userName commandType:DeviceCommandTypePowerOn device:dvc dateTime:[NSDate date]];
+        }
     }
 }
 
@@ -228,8 +239,17 @@
     NSString*userName=[[NSUserDefaults standardUserDefaults]objectForKey:LoginUserNameKey];
     NSInteger section=btn.indexPath.section;
     if ([self sendAllSection]==section) {
-        for (RemoteDevice*dvc in self.devicArray) {
-            [self.communication sendPowerOn:dvc.deviceIP port:dvc.port.integerValue];
+        for (RemoteDevice*dvc in self.devicArray)
+        {
+            if (self.comandBlock!=nil)
+            {
+                self.comandBlock(self,DeviceCommandTypePowerOn,dvc);
+            }
+            else
+            {
+        
+                [self.communication sendPowerOn:dvc.deviceIP port:dvc.port.integerValue];
+            }
         }
         NSString*deviceTypeName=[CoreDateTypeUtility titleForDeviceType:self.deviceType];
         NSString*commandText=[NSString stringWithFormat:@"发送 PowerOff to all %@",deviceTypeName];
@@ -237,6 +257,7 @@
     }
     else{
         RemoteDevice*dvc=[self.devicArray objectAtIndex:btn.indexPath.row];
+        
         [self.communication sendPowerOff:dvc.deviceIP port:dvc.port.integerValue];
         [[CoreDataAdaptor instance] insertOperationLog:userName commandType:DeviceCommandTypePowerOff device:dvc dateTime:[NSDate date]];
 
@@ -320,6 +341,11 @@
         
     }];
     [opration start];
+    
+}
+
+-(void)sendCommnad2Device:(NSString*)cmdString device:(RemoteDevice*)device
+{
     
 }
 

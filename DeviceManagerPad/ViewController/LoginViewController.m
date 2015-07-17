@@ -14,6 +14,8 @@
     @private
     IBOutlet UITextField*tfUserName;
     IBOutlet UITextField*tfPassword;
+    IBOutlet UIButton* loginButton;
+    IBOutlet UIButton* refillButton;
     
     
 }
@@ -80,6 +82,15 @@
         tfUserName.text=userName;
         tfPassword.text=[[NSUserDefaults standardUserDefaults] objectForKey:LoginUserPasswordKey];
     }
+    
+    UIImage* backgroundImage = [UIImage imageNamed:@"LoginBackground"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+    
+    [loginButton setBackgroundColor:[UIColor whiteColor]];
+    loginButton.layer.cornerRadius = 8;
+    [refillButton setBackgroundColor:[UIColor whiteColor]];
+    refillButton.layer.cornerRadius = 8;
+    
     return;
 }
 

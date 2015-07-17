@@ -7,6 +7,7 @@ static NSString*const ClusterPowerOffKey=@"CluserPowerOffKey";
 
 //Projection
 
+static NSString*const ProjectionQuickShotKey = @"ProjectionQuickShotKey";
 static NSString*const ProjectionPowerOnKey=@"ProjectPowerOnKey";
 static NSString*const ProjectionPowerOffKey=@"ProjectionPowerOffKey";
 
@@ -24,7 +25,7 @@ static NSString*const SoftwarePowerOnKey=@"SoftwarePowerOnKey";
 static NSString*const SoftwarePowerOffKey=@"SoftwarePowerOffKey";
 
 
-
+#define QuickShotTag 100
 #define PowerOnTag 101
 #define PowerOffTag 102
 #define VolumeUpTag 201

@@ -27,6 +27,7 @@
 #import "StereoViewController.h"
 #import "AsyncSocketController.h"
 #import "TcpSwitchControl.h"
+#import "ProjectDeviceTVC.h"
 
 
 #define StartSection 0
@@ -44,6 +45,7 @@
     
 }
 @property(nonatomic,strong)StereoViewController*stereoViewController;
+@property(nonatomic,strong)NSMutableArray*projectSocketControlArray;
 
 
 //@property(nonatomic,strong)GCDAsyncSocket*tcpSocket;
@@ -70,6 +72,8 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.socketController=[[AsyncUdpSocketController alloc]init];
     self.tcpSocketController =[[AsyncSocketController alloc]init];
+    
+    self.projectSocketControlArray = [NSMutableArray array];
     
 
     [[CoreDataAdaptor instance] saveCurrentChanges:nil];
@@ -206,6 +210,85 @@
     stvc.communication=swtcc;
 }
 
+-(void)processPrjectDeviceVC:(UINavigationController *)navi editable:(BOOL)editable defaultSetting:(NSUserDefaults *)defaultSetting
+{
+    
+    SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
+    stvc.deviceType=DeviceTypeProjection;
+    stvc.title=[CoreDateTypeUtility titleForDeviceType:stvc.deviceType];
+    stvc.editable=editable;
+    __weak MasterViewController*weakSelf = (MasterViewController*)self;
+    stvc.comandBlock=^(id sender,NSString*cmdString,RemoteDevice* device)
+    {
+        [weakSelf processCommand:sender command:cmdString device:device];
+    };
+    /*
+    ProjectDeviceTVC*prjDevicVC = (ProjectDeviceTVC*)navi.topViewController;
+    prjDevicVC.deviceType = DeviceTypeProjection;
+    prjDevicVC.editable = editable;
+    prjDevicVC.title = [CoreDateTypeUtility titleForDeviceType:prjDevicVC.deviceType];
+     */
+    
+}
+
+
+-(void)processCommand:(id)sender command:(NSString*)cmdString device:(RemoteDevice*)device
+{
+    SwitchTableViewController*stvc = (SwitchTableViewController*)sender;
+    if (DeviceTypeProjection != stvc.deviceType)
+    {
+        return;
+    }
+    if ([cmdString isEqualToString:DeviceCommandTypePowerOn])
+    {
+        [self powerOnProjector:device];
+         return;
+    }
+    if ([cmdString isEqualToString:DeviceCommandTypePowerOff])
+    {
+        [self powerOffProjector:device];
+    }
+    
+}
+
+-(void)powerOnProjector:(RemoteDevice*)device
+{
+    TcpSwitchControl* prjSwitch = [self projectorControl:device];
+    if (prjSwitch==nil)
+    {
+        prjSwitch = [[TcpSwitchControl alloc]initWithDevice:device];
+        [prjSwitch connectAndPowerOn:device];
+        NSUserDefaults*defalut =[NSUserDefaults standardUserDefaults];
+        prjSwitch.powerOffCommand =[defalut stringForKey:ProjectionPowerOffKey];
+        prjSwitch.powerOnCommand = [defalut stringForKey:ProjectionPowerOnKey];
+        prjSwitch.quickShotCommand = [defalut stringForKey:ProjectionQuickShotKey];
+        [self.projectSocketControlArray addObject:prjSwitch];
+    }
+    else
+    {
+        [prjSwitch powerOnDevice:device];
+    }
+    
+
+}
+-(void)powerOffProjector:(RemoteDevice*)device
+{
+    
+}
+
+-(TcpSwitchControl*)projectorControl:(RemoteDevice*)device
+{
+    for (TcpSwitchControl* control in self.projectSocketControlArray)
+    {
+        if ([control.device.deviceIP isEqualToString:device.deviceIP]&&
+            device.port==control.device.port)
+        {
+            return control;
+        }
+    }
+    return nil;
+}
+
 - (void)processManagementSegue:(UIStoryboardSegue *)segue indexPath:(NSIndexPath *)indexPath {
     NSString*loginUserName=[[NSUserDefaults standardUserDefaults]objectForKey:LoginUserNameKey];
     NSAssert(loginUserName.length>0, @"no login user");
@@ -216,8 +299,11 @@
         [self processClusterSwitchViewController:navi editable:editable defaultSetting:defaultSetting];
         return;
     }
-    if (ManagementSection==indexPath.section&&ProjectionRow==indexPath.row) {
-        [self processProjectSwitchViewController:navi editable:editable defaultSetting:defaultSetting];
+    if (ManagementSection==indexPath.section&&ProjectionRow==indexPath.row)
+    {
+        //[self processProjectSwitchViewController:navi editable:editable defaultSetting:defaultSetting];
+        [self processPrjectDeviceVC:navi editable:editable defaultSetting:defaultSetting];
+        
         return;
     }
     if (ManagementSection==indexPath.section&&SoftwareRow==indexPath.row) {
@@ -259,8 +345,10 @@
 -(UITableViewCell*)socketSettincCell:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath{
     
     switch (indexPath.row) {
-        case ClusterRow:
         case ProjectionRow:
+            return [self projectorSocketSettingCell:tableView indexPath:indexPath];
+        case ClusterRow:
+        
         case SoftwareRow:
             return [self switchSocketSettingCell:tableView indexPath:indexPath];
         case StereoRow:
@@ -310,6 +398,14 @@
     UITableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:settingCell forIndexPath:indexPath];
     cell.textLabel.text=@"音响设置";
     return cell;
+}
+-(UITableViewCell*)projectorSocketSettingCell:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath
+{
+    static NSString*settingCell=@"ProjectorSettingCell";
+    UITableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:settingCell forIndexPath:indexPath];
+    cell.textLabel.text=@"投影仪设置";
+    return cell;
+
 }
 -(NSString*)titleForIndexPath:(NSIndexPath*)indexPath{
     if (indexPath.section!=SettingSection&&indexPath.section!=ManagementSection) {
