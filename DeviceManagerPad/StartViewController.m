@@ -28,19 +28,19 @@
 @synthesize communication;
 @synthesize editable;
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self customizeButton:self.powerOnAllButton];
-    //[self.powerOnAllButton setBackgroundColor:[UIColor redColor]];
+    [self.powerOnAllButton setBackgroundImage:[UIImage imageNamed:@"PowerOnAll"] forState:UIControlStateNormal];
     [self customizeButton:self.powerOffAllButton];
-    //[self.powerOffAllButton setBackgroundColor:[UIColor greenColor]];
+    [self.powerOffAllButton setBackgroundImage:[UIImage imageNamed:@"PowerOffAll"] forState:UIControlStateNormal];
 }
 
 -(void)customizeButton:(UIButton*)button
 {
-    button.layer.cornerRadius = 50;
-    [button setBackgroundColor:[UIColor grayColor]];
+    [button setTitle:@"" forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {

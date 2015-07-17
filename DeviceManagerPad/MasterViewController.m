@@ -187,10 +187,7 @@
     stvc.title=[CoreDateTypeUtility titleForDeviceType:stvc.deviceType];
     stvc.editable=editable;
     
-    //TcpSwitchControl*tcpSwtichCtrl =[[TcpSwitchControl alloc]initWithTcpSocket:self.tcpSocketController.tcpSocket];
-    
-    //tcpSwtichCtrl.powerOnCommand=[defaultSetting objectForKey:ProjectionPowerOnKey];
-    //tcpSwtichCtrl.powerOffCommand=[defaultSetting objectForKey:ProjectionPowerOffKey];
+
 
     SwitchCommandControl*swtcc=[[SwitchCommandControl alloc]initWithUdpSocket:self.socketController.udpSocket];
     swtcc.powerOnCommand=[defaultSetting objectForKey:ProjectionPowerOnKey];
@@ -205,8 +202,8 @@
     
     stvc.editable=editable;
     SwitchCommandControl*swtcc=[[SwitchCommandControl alloc]initWithUdpSocket:self.socketController.udpSocket];
-    swtcc.powerOnCommand=[defaultSetting objectForKey:ProjectionPowerOnKey];
-    swtcc.powerOffCommand=[defaultSetting objectForKey:ProjectionPowerOffKey];
+    swtcc.powerOnCommand=[defaultSetting objectForKey:SoftwarePowerOnKey];
+    swtcc.powerOffCommand=[defaultSetting objectForKey:SoftwarePowerOffKey];
     stvc.communication=swtcc;
 }
 
@@ -222,12 +219,7 @@
     {
         [weakSelf processCommand:sender command:cmdString device:device];
     };
-    /*
-    ProjectDeviceTVC*prjDevicVC = (ProjectDeviceTVC*)navi.topViewController;
-    prjDevicVC.deviceType = DeviceTypeProjection;
-    prjDevicVC.editable = editable;
-    prjDevicVC.title = [CoreDateTypeUtility titleForDeviceType:prjDevicVC.deviceType];
-     */
+
     
 }
 
@@ -273,7 +265,11 @@
 }
 -(void)powerOffProjector:(RemoteDevice*)device
 {
-    
+    TcpSwitchControl* prjSwitch = [self projectorControl:device];
+    if (nil!=prjSwitch)
+    {
+        [prjSwitch powerOffDevice:device];
+    }
 }
 
 -(TcpSwitchControl*)projectorControl:(RemoteDevice*)device
@@ -379,13 +375,13 @@
     UITableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:switchSocketSettingCell forIndexPath:indexPath];
     switch (indexPath.row) {
         case ClusterRow:
-            cell.textLabel.text=@"ClusterSetting";
+            cell.textLabel.text=@"集群设置";
             break;
         case ProjectionRow:
             cell.textLabel.text=@"ProjectionSetting";
             break;
         case SoftwareRow:
-            cell.textLabel.text=@"SoftwareSetting";
+            cell.textLabel.text=@"软件设置";
             break;
         default:
             cell.textLabel.text=@"UnknownSetting";

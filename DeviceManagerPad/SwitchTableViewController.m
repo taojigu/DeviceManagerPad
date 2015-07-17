@@ -97,8 +97,13 @@
     
     static NSString*cellIdentifer= @"SwitchCell";
     SwitchCell *cell = (SwitchCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifer forIndexPath:indexPath];
+    UIImage*powerOnImage  = [UIImage imageNamed:@"PowerOn"];
+    UIImage *powerOffImage =[UIImage imageNamed:@"PowerOff"];
+    
     cell.powerOnButton.indexPath=indexPath;
+    [cell.powerOnButton setBackgroundImage:powerOnImage forState:UIControlStateNormal];
     cell.powerOffButton.indexPath=indexPath;
+    [cell.powerOffButton setBackgroundImage:powerOffImage forState:UIControlStateNormal];
 
     RemoteDevice*device=[self.devicArray objectAtIndex:indexPath.row];
     cell.titleLabel.text=device.name;
@@ -207,11 +212,19 @@
 -(IBAction)powerOnButtonClicked:(id)sender{
     UIButton*btn=(UIButton*)sender;
     NSString*userName=[[NSUserDefaults standardUserDefaults]objectForKey:LoginUserNameKey];
-    if ([self sendAllSection]==btn.indexPath.section) {
+    if ([self sendAllSection]==btn.indexPath.section)
+    {
         
         for (RemoteDevice*dvc in self.devicArray)
         {
-            [self.communication sendPowerOn:dvc.deviceIP port:dvc.port.integerValue];
+            if (nil!=self.comandBlock)
+            {
+                self.comandBlock(self,DeviceCommandTypePowerOn,dvc);
+            }
+            else
+            {
+                [self.communication sendPowerOn:dvc.deviceIP port:dvc.port.integerValue];
+            }
         }
         NSString*deviceTypeName=[CoreDateTypeUtility titleForDeviceType:self.deviceType];
         NSString*commandText=[NSString stringWithFormat:@"发送 PowerON to all %@",deviceTypeName];
@@ -229,8 +242,9 @@
         {
 
             [self.communication sendPowerOn:dvc.deviceIP port:dvc.port.integerValue];
-            [[CoreDataAdaptor instance] insertOperationLog:userName commandType:DeviceCommandTypePowerOn device:dvc dateTime:[NSDate date]];
+           
         }
+         [[CoreDataAdaptor instance] insertOperationLog:userName commandType:DeviceCommandTypePowerOn device:dvc dateTime:[NSDate date]];
     }
 }
 
@@ -243,12 +257,11 @@
         {
             if (self.comandBlock!=nil)
             {
-                self.comandBlock(self,DeviceCommandTypePowerOn,dvc);
+                self.comandBlock(self,DeviceCommandTypePowerOff,dvc);
             }
             else
             {
-        
-                [self.communication sendPowerOn:dvc.deviceIP port:dvc.port.integerValue];
+                [self.communication sendPowerOff:dvc.deviceIP port:dvc.port.integerValue];
             }
         }
         NSString*deviceTypeName=[CoreDateTypeUtility titleForDeviceType:self.deviceType];
@@ -256,9 +269,18 @@
         [[CoreDataAdaptor instance] insertOperationLog:userName comandType:DeviceCommandTypePowerOfAll commandText:commandText dateTime:[NSDate date]];
     }
     else{
+        
         RemoteDevice*dvc=[self.devicArray objectAtIndex:btn.indexPath.row];
         
-        [self.communication sendPowerOff:dvc.deviceIP port:dvc.port.integerValue];
+        if (self.comandBlock!=nil)
+        {
+            self.comandBlock(self,DeviceCommandTypePowerOff,dvc);
+        }
+        else
+        {
+            [self.communication sendPowerOff:dvc.deviceIP port:dvc.port.integerValue];
+        };
+        
         [[CoreDataAdaptor instance] insertOperationLog:userName commandType:DeviceCommandTypePowerOff device:dvc dateTime:[NSDate date]];
 
     }
@@ -289,16 +311,21 @@
 -(UITableViewCell*)addDeviceCell:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath{
     static NSString*addDeviceCell=@"AddDeviceCell";
     UITableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:addDeviceCell];
-    cell.textLabel.text=@"Add Device";
+    cell.textLabel.text=@"添加新设备";
     return cell;
 }
 
 -(UITableViewCell*)sendAllDeviceCell:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath{
     static NSString*cellIdentifer= @"SwitchCell";
     SwitchCell *cell = (SwitchCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifer forIndexPath:indexPath];
-    cell.powerOnButton.indexPath=indexPath;
-    cell.powerOffButton.indexPath=indexPath;
+    UIImage*powerOnImage  = [UIImage imageNamed:@"PowerOn"];
+    UIImage *powerOffImage =[UIImage imageNamed:@"PowerOff"];
     
+    cell.powerOnButton.indexPath=indexPath;
+    [cell.powerOnButton setBackgroundImage:powerOnImage forState:UIControlStateNormal];
+    cell.powerOffButton.indexPath=indexPath;
+    [cell.powerOffButton setBackgroundImage:powerOffImage forState:UIControlStateNormal];
+    cell.isAllSwitch=YES;
     cell.titleLabel.text=@"所有设备";
     cell.subTitleLabel.text=@"所有设备IP";
     return cell;

@@ -16,10 +16,14 @@
 }
 
 @property(nonatomic,strong)RemoteDevice*device;
+@property(nonatomic,strong)GCDAsyncSocket*tcpSocket;
 
 -(instancetype)initWithDevice:(RemoteDevice*)device;
 -(void)connectAndPowerOn:(RemoteDevice*)device;
 -(void)powerOnDevice:(RemoteDevice*)device;
+-(void)powerOffDevice:(RemoteDevice*)device;
+-(void)checkConnection;
+-(void)disconnect;
 
 @property(nonatomic,strong)NSString*powerOnCommand;
 @property(nonatomic,strong)NSString*quickShotCommand;

@@ -17,7 +17,7 @@
 }
 
 
-@property(nonatomic,strong)GCDAsyncSocket*tcpSocket;
+
 
 
 
@@ -39,12 +39,18 @@
 
 -(void)connectAndPowerOn:(RemoteDevice*)device
 {
-    [self checkConnection:device.deviceIP port:[device.port intValue]];
+    [self checkConnection];
     [self sendPowerOn:device.deviceIP port:[device.port intValue]];
 }
 -(void)powerOnDevice:(RemoteDevice*)device
 {
     [self sendPowerOn:device.deviceIP port:[device.port intValue]];
+}
+-(void)powerOffDevice:(RemoteDevice*)device
+{
+    NSData*powerOffData=[SocketUtility hexDataFromNSString:self.powerOffCommand];
+    [self.tcpSocket writeData:powerOffData withTimeout:2 tag:PowerOffTag];
+
 }
 
 -(void)sendPowerOn:(NSString*)hostAddress port:(NSInteger)port
@@ -63,8 +69,14 @@
     [self.tcpSocket writeData:powerOffData withTimeout:10 tag:PowerOffTag];
 }
 
--(void)checkConnection:(NSString*)hostAddress port:(uint16_t)port
+-(void)disconnect
 {
+    [self.tcpSocket disconnectAfterReadingAndWriting];
+}
+-(void)checkConnection
+{
+    NSString*hostAddress =self.device.deviceIP;
+    uint16_t port = [self.device.port integerValue];
     
     if (self.tcpSocket.isConnected&&[self.tcpSocket.connectedHost isEqual:hostAddress])
     {
@@ -86,6 +98,7 @@
     {
         NSLog(@"Connect Tcp %@ error：%@ ",hostAddress,[error localizedDescription]);
     }
+
 }
 
 -(void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port

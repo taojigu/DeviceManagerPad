@@ -20,6 +20,9 @@
 @property(nonatomic,strong)IBOutlet UITextField*tfPort;
 
 
+@property(nonatomic,strong)IBOutlet UIView*touchControlView;
+
+
 
 -(IBAction)sendPowerOn:(id)sender;
 -(IBAction)sendPowerOff:(id)sender;
@@ -46,10 +49,14 @@
     self.tfPort.hidden=!self.editable;
     self.saveButton.hidden=!self.editable;
     
+    [self initCustomViews];
+    
     [self readDeviceDate];
     [self refresh];
     return;
 }
+
+
 
 
 #pragma -- mark selector messages
@@ -70,7 +77,38 @@
 -(IBAction)saveButtonClicked:(id)sender{
     [self saveDevice];
 }
+
+-(void)touchControlViewPan:(UIPanGestureRecognizer*)recg
+{
+    CGPoint vel =[recg velocityInView:self.touchControlView];
+    if (fabs(vel.x)<fabs(vel.y))
+    {
+        return;
+    }
+    
+    if (vel.x>200)
+    {
+        NSLog(@"Velocity is %@",NSStringFromCGPoint(vel));
+        [self.communication sendVolumeDown:self.device.deviceIP port:[self.device.port integerValue]];
+    }
+    if (vel.x<-200)
+    {
+        NSLog(@"Velocity is %@",NSStringFromCGPoint(vel));
+        [self.communication sendVolumeUp:self.device.deviceIP port:[self.device.port integerValue]];
+    }
+        
+}
 #pragma -- private messages
+
+
+-(void)initCustomViews
+{
+    UIPanGestureRecognizer*pan =[[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(touchControlViewPan:)];
+    [self.touchControlView addGestureRecognizer:pan];
+    
+    UIImage* image = [UIImage imageNamed:@"音量"];
+    self.touchControlView.backgroundColor = [UIColor colorWithPatternImage:image];
+}
 
 -(void)saveDevice{
     self.device.deviceIP=self.tfAddress.text;

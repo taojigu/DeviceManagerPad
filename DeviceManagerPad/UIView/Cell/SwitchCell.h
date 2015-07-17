@@ -18,6 +18,8 @@
 @property(nonatomic,strong)IBOutlet UIButton*powerOnButton;
 @property(nonatomic,strong)IBOutlet UIButton*powerOffButton;
 
+@property(nonatomic,assign)BOOL isAllSwitch;
+
 
 
 

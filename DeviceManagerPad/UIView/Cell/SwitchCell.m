@@ -25,14 +25,14 @@
 @synthesize subTitleLabel;
 
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
+
+
+    [self.powerOnButton setTitle:@"" forState:UIControlStateNormal];
     
-    // Initialization code
-    [self.powerOffButton setBackgroundColor:[UIColor colorWithRed:186/255 green:184/255 blue:184/255 alpha:0.56]];
-    //self.powerOffButton.layer.cornerRadius = 30;
-    
-    [self.powerOnButton setBackgroundColor:[UIColor colorWithRed:186/255 green:184/255 blue:184/255 alpha:0.56]];
-    //self.powerOnButton.layer.cornerRadius =30;
+    [self.powerOffButton setTitle:@"" forState:UIControlStateNormal];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
