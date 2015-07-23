@@ -210,6 +210,7 @@
 -(void)processPrjectDeviceVC:(UINavigationController *)navi editable:(BOOL)editable defaultSetting:(NSUserDefaults *)defaultSetting
 {
     
+
     SwitchTableViewController*stvc=(SwitchTableViewController*)navi.topViewController;
     stvc.deviceType=DeviceTypeProjection;
     stvc.title=[CoreDateTypeUtility titleForDeviceType:stvc.deviceType];
@@ -249,27 +250,35 @@
     if (prjSwitch==nil)
     {
         prjSwitch = [[TcpSwitchControl alloc]initWithDevice:device];
-        [prjSwitch connectAndPowerOn:device];
+        [prjSwitch checkConnection];
         NSUserDefaults*defalut =[NSUserDefaults standardUserDefaults];
         prjSwitch.powerOffCommand =[defalut stringForKey:ProjectionPowerOffKey];
         prjSwitch.powerOnCommand = [defalut stringForKey:ProjectionPowerOnKey];
         prjSwitch.quickShotCommand = [defalut stringForKey:ProjectionQuickShotKey];
         [self.projectSocketControlArray addObject:prjSwitch];
     }
-    else
-    {
-        [prjSwitch powerOnDevice:device];
-    }
+    
+    [prjSwitch powerOnDevice:device];
+    
     
 
 }
 -(void)powerOffProjector:(RemoteDevice*)device
 {
     TcpSwitchControl* prjSwitch = [self projectorControl:device];
-    if (nil!=prjSwitch)
+    if (prjSwitch==nil)
     {
-        [prjSwitch powerOffDevice:device];
+        prjSwitch = [[TcpSwitchControl alloc]initWithDevice:device];
+        [prjSwitch checkConnection];
+        NSUserDefaults*defalut =[NSUserDefaults standardUserDefaults];
+        prjSwitch.powerOffCommand =[defalut stringForKey:ProjectionPowerOffKey];
+        prjSwitch.powerOnCommand = [defalut stringForKey:ProjectionPowerOnKey];
+        prjSwitch.quickShotCommand = [defalut stringForKey:ProjectionQuickShotKey];
+        [self.projectSocketControlArray addObject:prjSwitch];
     }
+   
+    [prjSwitch powerOffDevice:device];
+    
 }
 
 -(TcpSwitchControl*)projectorControl:(RemoteDevice*)device

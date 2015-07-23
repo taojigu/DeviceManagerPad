@@ -86,8 +86,12 @@
     self.remoteDevice.type=[NSNumber numberWithInteger:self.deviceType];
     self.remoteDevice.name=self.deviceNameTextField.text;
     self.remoteDevice.deviceIP=self.ipTextField.text;
-    self.remoteDevice.port=[NSNumber numberWithInteger:[self.portTextField.text intValue]];
+    NSInteger portValue = [self.portTextField.text integerValue];
+    
 
+    NSNumber* unsignNumber =[NSNumber numberWithInteger:portValue];
+    self.remoteDevice.port = unsignNumber;
+    
     if (self.delegate!=nil&&[self.delegate respondsToSelector:@selector(remoteDeviceDidUpdated:remotedDevice:)]) {
         
         [self.delegate remoteDeviceDidUpdated:self remotedDevice:self.remoteDevice];
