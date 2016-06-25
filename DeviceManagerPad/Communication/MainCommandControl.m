@@ -10,7 +10,6 @@
 #import "RemoteDevice.h"
 #import "CoreDataAdaptor.h"
 #import "SwitchCommandControl.h"
-#import "StereoCommandControl.h"
 #import "DeviceCommunication.h"
 #import "TcpSwitchControl.h"
 

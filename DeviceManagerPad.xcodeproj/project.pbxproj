@@ -26,28 +26,16 @@
 		1683C33A1AAADF7E00C139CF /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3391AAADF7E00C139CF /* TestViewController.m */; };
 		1683C33F1AAC49D900C139CF /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C33E1AAC49D900C139CF /* StartViewController.m */; };
 		1683C3421AAC49FC00C139CF /* SwitchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3411AAC49FC00C139CF /* SwitchTableViewController.m */; };
-		1683C3591AAC503E00C139CF /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3471AAC503E00C139CF /* AFHTTPRequestOperation.m */; };
-		1683C35A1AAC503E00C139CF /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3491AAC503E00C139CF /* AFHTTPRequestOperationManager.m */; };
-		1683C35B1AAC503E00C139CF /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C34B1AAC503E00C139CF /* AFHTTPSessionManager.m */; };
-		1683C35C1AAC503E00C139CF /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C34E1AAC503E00C139CF /* AFNetworkReachabilityManager.m */; };
-		1683C35D1AAC503E00C139CF /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3501AAC503E00C139CF /* AFSecurityPolicy.m */; };
-		1683C35E1AAC503E00C139CF /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3521AAC503E00C139CF /* AFURLConnectionOperation.m */; };
-		1683C35F1AAC503E00C139CF /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3541AAC503E00C139CF /* AFURLRequestSerialization.m */; };
-		1683C3601AAC503E00C139CF /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3561AAC503E00C139CF /* AFURLResponseSerialization.m */; };
-		1683C3611AAC503E00C139CF /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3581AAC503E00C139CF /* AFURLSessionManager.m */; };
 		1683C3691AAC575D00C139CF /* DataResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3681AAC575D00C139CF /* DataResult.m */; };
 		1683C3841AAC836400C139CF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3831AAC836400C139CF /* LoginViewController.m */; };
 		1683C38C1AAD87F200C139CF /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C3891AAD87F200C139CF /* GCDAsyncSocket.m */; };
 		1683C38D1AAD87F200C139CF /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683C38B1AAD87F200C139CF /* GCDAsyncUdpSocket.m */; };
 		16AE83C61AB7D0A800F3FE63 /* MainCommandControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AE83C51AB7D0A800F3FE63 /* MainCommandControl.m */; };
-		16AE83D21AB7D23400F3FE63 /* StereoCommandControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AE83D11AB7D23400F3FE63 /* StereoCommandControl.m */; };
 		16AE83D51AB83CF600F3FE63 /* OperationLogVIewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AE83D41AB83CF600F3FE63 /* OperationLogVIewController.m */; };
-		16AE83D81AB9A12E00F3FE63 /* StereoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AE83D71AB9A12E00F3FE63 /* StereoViewController.m */; };
 		16B5E20D1ABD5C9300D098B3 /* SwitchSocketSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B5E20C1ABD5C9300D098B3 /* SwitchSocketSettingController.m */; };
 		16B5E2101ABD602600D098B3 /* FakeSocketFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B5E20F1ABD602600D098B3 /* FakeSocketFactory.m */; };
 		16B5E2131ABD6FFF00D098B3 /* SocketUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B5E2121ABD6FFF00D098B3 /* SocketUtility.m */; };
 		16B5E2161ABD718600D098B3 /* SwitchCommandControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B5E2151ABD718600D098B3 /* SwitchCommandControl.m */; };
-		16B5E2191ABD8F3400D098B3 /* StereoSocketSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B5E2181ABD8F3400D098B3 /* StereoSocketSettingViewController.m */; };
 		CC39575C1B5596AD0008F75C /* TcpSwitchControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CC39575B1B5596AD0008F75C /* TcpSwitchControl.m */; };
 		CC39575F1B55AE7A0008F75C /* AsyncSocketController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC39575E1B55AE7A0008F75C /* AsyncSocketController.m */; };
 		CCC43F791B58CEFE004A0C16 /* ProjectDeviceTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC43F781B58CEFE004A0C16 /* ProjectDeviceTVC.m */; };
@@ -103,25 +91,6 @@
 		1683C33E1AAC49D900C139CF /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		1683C3401AAC49FC00C139CF /* SwitchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchTableViewController.h; sourceTree = "<group>"; };
 		1683C3411AAC49FC00C139CF /* SwitchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchTableViewController.m; sourceTree = "<group>"; };
-		1683C3461AAC503E00C139CF /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = Util/AFNetwork/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
-		1683C3471AAC503E00C139CF /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperation.m; path = Util/AFNetwork/AFHTTPRequestOperation.m; sourceTree = "<group>"; };
-		1683C3481AAC503E00C139CF /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperationManager.h; path = Util/AFNetwork/AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
-		1683C3491AAC503E00C139CF /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperationManager.m; path = Util/AFNetwork/AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
-		1683C34A1AAC503E00C139CF /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = Util/AFNetwork/AFHTTPSessionManager.h; sourceTree = "<group>"; };
-		1683C34B1AAC503E00C139CF /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = Util/AFNetwork/AFHTTPSessionManager.m; sourceTree = "<group>"; };
-		1683C34C1AAC503E00C139CF /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = Util/AFNetwork/AFNetworking.h; sourceTree = "<group>"; };
-		1683C34D1AAC503E00C139CF /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = Util/AFNetwork/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
-		1683C34E1AAC503E00C139CF /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = Util/AFNetwork/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
-		1683C34F1AAC503E00C139CF /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = Util/AFNetwork/AFSecurityPolicy.h; sourceTree = "<group>"; };
-		1683C3501AAC503E00C139CF /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFSecurityPolicy.m; path = Util/AFNetwork/AFSecurityPolicy.m; sourceTree = "<group>"; };
-		1683C3511AAC503E00C139CF /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFURLConnectionOperation.h; path = Util/AFNetwork/AFURLConnectionOperation.h; sourceTree = "<group>"; };
-		1683C3521AAC503E00C139CF /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLConnectionOperation.m; path = Util/AFNetwork/AFURLConnectionOperation.m; sourceTree = "<group>"; };
-		1683C3531AAC503E00C139CF /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFURLRequestSerialization.h; path = Util/AFNetwork/AFURLRequestSerialization.h; sourceTree = "<group>"; };
-		1683C3541AAC503E00C139CF /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = Util/AFNetwork/AFURLRequestSerialization.m; sourceTree = "<group>"; };
-		1683C3551AAC503E00C139CF /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = Util/AFNetwork/AFURLResponseSerialization.h; sourceTree = "<group>"; };
-		1683C3561AAC503E00C139CF /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = Util/AFNetwork/AFURLResponseSerialization.m; sourceTree = "<group>"; };
-		1683C3571AAC503E00C139CF /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = Util/AFNetwork/AFURLSessionManager.h; sourceTree = "<group>"; };
-		1683C3581AAC503E00C139CF /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = Util/AFNetwork/AFURLSessionManager.m; sourceTree = "<group>"; };
 		1683C3671AAC575D00C139CF /* DataResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataResult.h; path = Model/DataResult.h; sourceTree = "<group>"; };
 		1683C3681AAC575D00C139CF /* DataResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataResult.m; path = Model/DataResult.m; sourceTree = "<group>"; };
 		1683C3821AAC836400C139CF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ViewController/LoginViewController.h; sourceTree = "<group>"; };
@@ -134,12 +103,8 @@
 		16AE83C21AB7C24F00F3FE63 /* PCommunication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PCommunication.h; path = Communication/PCommunication.h; sourceTree = "<group>"; };
 		16AE83C41AB7D0A800F3FE63 /* MainCommandControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainCommandControl.h; path = Communication/MainCommandControl.h; sourceTree = "<group>"; };
 		16AE83C51AB7D0A800F3FE63 /* MainCommandControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainCommandControl.m; path = Communication/MainCommandControl.m; sourceTree = "<group>"; };
-		16AE83D01AB7D23400F3FE63 /* StereoCommandControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StereoCommandControl.h; path = Communication/StereoCommandControl.h; sourceTree = "<group>"; };
-		16AE83D11AB7D23400F3FE63 /* StereoCommandControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StereoCommandControl.m; path = Communication/StereoCommandControl.m; sourceTree = "<group>"; };
 		16AE83D31AB83CF600F3FE63 /* OperationLogVIewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OperationLogVIewController.h; path = ViewController/OperationLogVIewController.h; sourceTree = "<group>"; };
 		16AE83D41AB83CF600F3FE63 /* OperationLogVIewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OperationLogVIewController.m; path = ViewController/OperationLogVIewController.m; sourceTree = "<group>"; };
-		16AE83D61AB9A12E00F3FE63 /* StereoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StereoViewController.h; path = ViewController/StereoViewController.h; sourceTree = "<group>"; };
-		16AE83D71AB9A12E00F3FE63 /* StereoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StereoViewController.m; path = ViewController/StereoViewController.m; sourceTree = "<group>"; };
 		16B5E2091ABD293A00D098B3 /* UserManagement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UserManagement.h; path = Const/UserManagement.h; sourceTree = "<group>"; };
 		16B5E20A1ABD590300D098B3 /* DeviceCommunication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DeviceCommunication.h; path = Const/DeviceCommunication.h; sourceTree = "<group>"; };
 		16B5E20B1ABD5C9300D098B3 /* SwitchSocketSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwitchSocketSettingController.h; path = ViewController/SwitchSocketSettingController.h; sourceTree = "<group>"; };
@@ -150,8 +115,6 @@
 		16B5E2121ABD6FFF00D098B3 /* SocketUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketUtility.m; path = Util/GCDSocket/SocketUtility.m; sourceTree = "<group>"; };
 		16B5E2141ABD718600D098B3 /* SwitchCommandControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwitchCommandControl.h; path = Communication/SwitchCommandControl.h; sourceTree = "<group>"; };
 		16B5E2151ABD718600D098B3 /* SwitchCommandControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwitchCommandControl.m; path = Communication/SwitchCommandControl.m; sourceTree = "<group>"; };
-		16B5E2171ABD8F3400D098B3 /* StereoSocketSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StereoSocketSettingViewController.h; path = ViewController/StereoSocketSettingViewController.h; sourceTree = "<group>"; };
-		16B5E2181ABD8F3400D098B3 /* StereoSocketSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StereoSocketSettingViewController.m; path = ViewController/StereoSocketSettingViewController.m; sourceTree = "<group>"; };
 		CC39575A1B5596AD0008F75C /* TcpSwitchControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TcpSwitchControl.h; path = Communication/TcpSwitchControl.h; sourceTree = "<group>"; };
 		CC39575B1B5596AD0008F75C /* TcpSwitchControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TcpSwitchControl.m; path = Communication/TcpSwitchControl.m; sourceTree = "<group>"; };
 		CC39575D1B55AE7A0008F75C /* AsyncSocketController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocketController.h; path = Util/GCDSocket/AsyncSocketController.h; sourceTree = "<group>"; };
@@ -296,8 +259,6 @@
 				164312111AB591CD00DFEA7D /* DeviceDetailViewController.m */,
 				16AE83D31AB83CF600F3FE63 /* OperationLogVIewController.h */,
 				16AE83D41AB83CF600F3FE63 /* OperationLogVIewController.m */,
-				16AE83D61AB9A12E00F3FE63 /* StereoViewController.h */,
-				16AE83D71AB9A12E00F3FE63 /* StereoViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -307,35 +268,8 @@
 			children = (
 				164312001AB2F0CC00DFEA7D /* Misc */,
 				1683C3871AAD879A00C139CF /* GCDSocket */,
-				1683C3451AAC501C00C139CF /* AFNetwork */,
 			);
 			name = Util;
-			sourceTree = "<group>";
-		};
-		1683C3451AAC501C00C139CF /* AFNetwork */ = {
-			isa = PBXGroup;
-			children = (
-				1683C3461AAC503E00C139CF /* AFHTTPRequestOperation.h */,
-				1683C3471AAC503E00C139CF /* AFHTTPRequestOperation.m */,
-				1683C3481AAC503E00C139CF /* AFHTTPRequestOperationManager.h */,
-				1683C3491AAC503E00C139CF /* AFHTTPRequestOperationManager.m */,
-				1683C34A1AAC503E00C139CF /* AFHTTPSessionManager.h */,
-				1683C34B1AAC503E00C139CF /* AFHTTPSessionManager.m */,
-				1683C34C1AAC503E00C139CF /* AFNetworking.h */,
-				1683C34D1AAC503E00C139CF /* AFNetworkReachabilityManager.h */,
-				1683C34E1AAC503E00C139CF /* AFNetworkReachabilityManager.m */,
-				1683C34F1AAC503E00C139CF /* AFSecurityPolicy.h */,
-				1683C3501AAC503E00C139CF /* AFSecurityPolicy.m */,
-				1683C3511AAC503E00C139CF /* AFURLConnectionOperation.h */,
-				1683C3521AAC503E00C139CF /* AFURLConnectionOperation.m */,
-				1683C3531AAC503E00C139CF /* AFURLRequestSerialization.h */,
-				1683C3541AAC503E00C139CF /* AFURLRequestSerialization.m */,
-				1683C3551AAC503E00C139CF /* AFURLResponseSerialization.h */,
-				1683C3561AAC503E00C139CF /* AFURLResponseSerialization.m */,
-				1683C3571AAC503E00C139CF /* AFURLSessionManager.h */,
-				1683C3581AAC503E00C139CF /* AFURLSessionManager.m */,
-			);
-			name = AFNetwork;
 			sourceTree = "<group>";
 		};
 		1683C3621AAC51C100C139CF /* Model */ = {
@@ -393,8 +327,6 @@
 				16AE83C21AB7C24F00F3FE63 /* PCommunication.h */,
 				16AE83C41AB7D0A800F3FE63 /* MainCommandControl.h */,
 				16AE83C51AB7D0A800F3FE63 /* MainCommandControl.m */,
-				16AE83D01AB7D23400F3FE63 /* StereoCommandControl.h */,
-				16AE83D11AB7D23400F3FE63 /* StereoCommandControl.m */,
 				16B5E2141ABD718600D098B3 /* SwitchCommandControl.h */,
 				16B5E2151ABD718600D098B3 /* SwitchCommandControl.m */,
 				CC39575A1B5596AD0008F75C /* TcpSwitchControl.h */,
@@ -417,8 +349,6 @@
 			children = (
 				16B5E20B1ABD5C9300D098B3 /* SwitchSocketSettingController.h */,
 				16B5E20C1ABD5C9300D098B3 /* SwitchSocketSettingController.m */,
-				16B5E2171ABD8F3400D098B3 /* StereoSocketSettingViewController.h */,
-				16B5E2181ABD8F3400D098B3 /* StereoSocketSettingViewController.m */,
 				CCC43F7B1B590711004A0C16 /* ProjectorSettingVC.h */,
 				CCC43F7C1B590711004A0C16 /* ProjectorSettingVC.m */,
 			);
@@ -526,13 +456,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16B5E2191ABD8F3400D098B3 /* StereoSocketSettingViewController.m in Sources */,
 				16B5E20D1ABD5C9300D098B3 /* SwitchSocketSettingController.m in Sources */,
 				1643120F1AB571B200DFEA7D /* RemoteDevice.m in Sources */,
 				CC39575C1B5596AD0008F75C /* TcpSwitchControl.m in Sources */,
 				1683C38D1AAD87F200C139CF /* GCDAsyncUdpSocket.m in Sources */,
 				1683C3691AAC575D00C139CF /* DataResult.m in Sources */,
-				1683C35E1AAC503E00C139CF /* AFURLConnectionOperation.m in Sources */,
 				1683C3121AAADE9300C139CF /* AppDelegate.m in Sources */,
 				1683C3841AAC836400C139CF /* LoginViewController.m in Sources */,
 				164312061AB5615000DFEA7D /* UIControl+IndexPath.m in Sources */,
@@ -541,32 +469,22 @@
 				1683C3151AAADE9300C139CF /* MasterViewController.m in Sources */,
 				1683C30F1AAADE9300C139CF /* main.m in Sources */,
 				CCC43F7D1B590711004A0C16 /* ProjectorSettingVC.m in Sources */,
-				1683C3601AAC503E00C139CF /* AFURLResponseSerialization.m in Sources */,
 				16B5E2131ABD6FFF00D098B3 /* SocketUtility.m in Sources */,
 				1683C33F1AAC49D900C139CF /* StartViewController.m in Sources */,
 				164311FB1AB1415900DFEA7D /* AsyncUdpSocketController.m in Sources */,
-				1683C35F1AAC503E00C139CF /* AFURLRequestSerialization.m in Sources */,
 				16B5E2161ABD718600D098B3 /* SwitchCommandControl.m in Sources */,
 				CCC43F791B58CEFE004A0C16 /* ProjectDeviceTVC.m in Sources */,
-				1683C35D1AAC503E00C139CF /* AFSecurityPolicy.m in Sources */,
 				1683C38C1AAD87F200C139CF /* GCDAsyncSocket.m in Sources */,
 				164312091AB56CE000DFEA7D /* CoreDataModel.xcdatamodeld in Sources */,
-				1683C3591AAC503E00C139CF /* AFHTTPRequestOperation.m in Sources */,
 				16AE83D51AB83CF600F3FE63 /* OperationLogVIewController.m in Sources */,
 				16AE83C61AB7D0A800F3FE63 /* MainCommandControl.m in Sources */,
-				1683C3611AAC503E00C139CF /* AFURLSessionManager.m in Sources */,
 				1683C3181AAADE9300C139CF /* DetailViewController.m in Sources */,
 				1683C3421AAC49FC00C139CF /* SwitchTableViewController.m in Sources */,
-				1683C35B1AAC503E00C139CF /* AFHTTPSessionManager.m in Sources */,
 				164312161AB67DA000DFEA7D /* SwitchCell.m in Sources */,
 				1683C33A1AAADF7E00C139CF /* TestViewController.m in Sources */,
-				1683C35C1AAC503E00C139CF /* AFNetworkReachabilityManager.m in Sources */,
 				164311FF1AB2EA0800DFEA7D /* CoreDataAdaptor.m in Sources */,
-				1683C35A1AAC503E00C139CF /* AFHTTPRequestOperationManager.m in Sources */,
 				164312191AB6BB6700DFEA7D /* CoreDateTypeUtility.m in Sources */,
-				16AE83D21AB7D23400F3FE63 /* StereoCommandControl.m in Sources */,
 				CC39575F1B55AE7A0008F75C /* AsyncSocketController.m in Sources */,
-				16AE83D81AB9A12E00F3FE63 /* StereoViewController.m in Sources */,
 				16B5E2101ABD602600D098B3 /* FakeSocketFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

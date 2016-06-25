@@ -13,8 +13,7 @@
 #import "StartViewController.h"
 #import "AsyncUdpSocketController.h"
 #import "MainCommandControl.h"
-#import "StereoCommandControl.h"
-#import "StereoCommandControl.h"
+
 #import "UserManagement.h"
 
 #import "CoreDataAdaptor.h"
@@ -23,8 +22,8 @@
 #import "SwitchCommandControl.h"
 #import "DeviceCommunication.h"
 #import "SwitchSocketSettingController.h"
-#import "StereoSocketSettingViewController.h"
-#import "StereoViewController.h"
+
+
 #import "AsyncSocketController.h"
 #import "TcpSwitchControl.h"
 #import "ProjectDeviceTVC.h"
@@ -37,14 +36,14 @@
 
 #define ClusterRow 0
 #define ProjectionRow 1
-#define StereoRow 2
-#define SoftwareRow 3
+//#define StereoRow 2
+//#define SoftwareRow 3
 
 
 @interface MasterViewController (){
     
 }
-@property(nonatomic,strong)StereoViewController*stereoViewController;
+
 @property(nonatomic,strong)NSMutableArray*projectSocketControlArray;
 
 
@@ -57,7 +56,6 @@
 
 @synthesize socketController;
 
-@synthesize stereoViewController;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -325,15 +323,7 @@
         
         return;
     }
-    if (ManagementSection==indexPath.section&&SoftwareRow==indexPath.row) {
-        [self processSoftwareSwitchViewController:navi editable:editable defaultSetting:defaultSetting];
-        return;
-    }
-    if (1==indexPath.section) {
-        StereoViewController*srovc=(StereoViewController*)navi.topViewController;
-        srovc.communication=[[StereoCommandControl alloc]initWithUdpSocket:self.socketController.udpSocket];
-        srovc.editable=editable;
-    }
+
 }
 -(void)processSettingSegue:(UIStoryboardSegue *)segue indexPath:(NSIndexPath*)indexPath{
     UINavigationController*navi=(UINavigationController*)segue.destinationViewController;
@@ -352,11 +342,7 @@
             sssvc.powerOffCommandKey=ProjectionPowerOffKey;
             return;
         }
-        if (SoftwareRow==indexPath.row) {
-            sssvc.powerOnCommandKey=SoftwarePowerOnKey;
-            sssvc.powerOffCommandKey=SoftwarePowerOffKey;
-        }
-        return;
+               return;
     }
     
 }
@@ -368,11 +354,7 @@
         case ProjectionRow:
             return [self projectorSocketSettingCell:tableView indexPath:indexPath];
         case ClusterRow:
-        
-        case SoftwareRow:
             return [self switchSocketSettingCell:tableView indexPath:indexPath];
-        case StereoRow:
-            return [self stereoSocketSettingCell:tableView indexPath:indexPath];
         default:
             break;
     }
@@ -380,19 +362,7 @@
     return nil;
 }
 
--(StereoViewController*)stereoViewController:(BOOL)edtable{
-    if (nil!=self.stereoViewController) {
-        return self.stereoViewController;
-    }
-    self.stereoViewController=[[StereoViewController alloc]init];
-    self.stereoViewController.editable=edtable;
-    self.stereoViewController.title=@"音响控制";
 
-    StereoCommandControl*commandCtrl=[[StereoCommandControl alloc]initWithUdpSocket:self.socketController.udpSocket];
-    self.stereoViewController.communication=commandCtrl;
-    return  self.stereoViewController;
-    
-}
 
 -(UITableViewCell*)switchSocketSettingCell:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath{
     static NSString*switchSocketSettingCell=@"SwitchSocketSettingCell";
@@ -404,21 +374,14 @@
         case ProjectionRow:
             cell.textLabel.text=@"ProjectionSetting";
             break;
-        case SoftwareRow:
-            cell.textLabel.text=@"软件设置";
-            break;
+
         default:
             cell.textLabel.text=@"UnknownSetting";
             break;
     }
     return cell;
 }
--(UITableViewCell*)stereoSocketSettingCell:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath{
-    static NSString*settingCell=@"StereoSocketSettingCell";
-    UITableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:settingCell forIndexPath:indexPath];
-    cell.textLabel.text=@"音响设置";
-    return cell;
-}
+
 -(UITableViewCell*)projectorSocketSettingCell:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath
 {
     static NSString*settingCell=@"ProjectorSettingCell";
@@ -436,10 +399,6 @@
             return @"Cluster";
         case ProjectionRow:
             return @"Project";
-        case StereoRow:
-            return @"Stereo";
-        case SoftwareRow:
-            return @"Software";
         default:
             break;
     }

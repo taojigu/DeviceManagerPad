@@ -7,7 +7,6 @@
 //
 
 #import "SwitchTableViewController.h"
-#import "AFHTTPRequestOperation.h"
 #import "CoreDataAdaptor.h"
 #import "DeviceDetailViewController.h"
 #import "CoreDateTypeUtility.h"
