@@ -58,6 +58,7 @@
 
     NSData*refreshData = [SocketUtility hexDataFromNSString:self.quickShotCommand];
     [self.tcpSocket writeData:refreshData withTimeout:2 tag:QuickShotTag];
+    [NSThread sleepForTimeInterval:0.1];
     
     NSData*powerOnData=[SocketUtility hexDataFromNSString:self.powerOnCommand];
     [self.tcpSocket writeData:powerOnData withTimeout:2 tag:PowerOnTag];

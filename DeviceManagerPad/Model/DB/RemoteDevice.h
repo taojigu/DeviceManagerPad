@@ -37,6 +37,8 @@ static NSString*const DeviceCommandTypeLogin=@"Login";
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * port;
 @property (nonatomic, retain) NSNumber* type;
+@property (nonatomic, retain) NSString* powerOnCmd;
+@property (nonatomic, retain) NSString* powerOffCmd;
 
 @end
 

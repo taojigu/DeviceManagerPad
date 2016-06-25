@@ -54,6 +54,7 @@
 
 -(void)refresh{
     
+    
     NSDate*startDate=[self startDate];
     NSArray*logArray=[[CoreDataAdaptor instance] operationLogArray:startDate];
     NSMutableString*buffer=[[NSMutableString alloc]initWithString:self.textView.text];

@@ -127,7 +127,7 @@
     if (0==section||2==section) {
         return 1;
     }else{
-        return 4;
+        return 2;
     }
 }
 
@@ -174,10 +174,24 @@
     stvc.editable=editable;
     SwitchCommandControl*swtcc=[[SwitchCommandControl alloc]initWithUdpSocket:self.socketController.udpSocket];
     
-    swtcc.powerOnCommand=[defaultSetting objectForKey:ClusterPowerOnKey];
-    swtcc.powerOffCommand=[defaultSetting objectForKey:ClusterPowerOffKey];
+    swtcc.repeatTime = [self clusterRepeatTime];
+    //swtcc.powerOnCommand=[defaultSetting objectForKey:ClusterPowerOnKey];
+    //swtcc.powerOffCommand=[defaultSetting objectForKey:ClusterPowerOffKey];
     stvc.communication=swtcc;
     return;
+    
+}
+
+
+-(NSInteger)clusterRepeatTime
+{
+    NSInteger repTime = [[NSUserDefaults standardUserDefaults] integerForKey:ClusterRepeatTimeKey];
+    if(repTime<=0)
+    {
+        repTime =3;
+    }
+    
+    return repTime;
     
 }
 
@@ -327,8 +341,9 @@
     if ([navi.topViewController class]==[SwitchSocketSettingController class]) {
         SwitchSocketSettingController*sssvc=(SwitchSocketSettingController*)navi.topViewController;
         if (ClusterRow==indexPath.row) {
-            sssvc.powerOnCommandKey=ClusterPowerOnKey;
-            sssvc.powerOffCommandKey=ClusterPowerOffKey;
+            //sssvc.powerOnCommandKey=ClusterPowerOnKey;
+            //sssvc.powerOffCommandKey=ClusterPowerOffKey;
+            sssvc.repeateTimeKey = ClusterRepeatTimeKey;
             
             return;
         }

@@ -62,11 +62,11 @@
 #pragma -- mark selector messages
 -(IBAction)sendPowerOn:(id)sender{
     
-    [self.communication sendPowerOn:self.device.deviceIP port:[self.device.port integerValue]];
+    //[self.communication sendPowerOn:self.device.deviceIP port:[self.device.port integerValue]];
     
 }
 -(IBAction)sendPowerOff:(id)sender{
-    [self.communication sendPowerOff:self.device.deviceIP port:[self.device.port integerValue]];
+    //[self.communication sendPowerOff:self.device.deviceIP port:[self.device.port integerValue]];
 }
 -(IBAction)sendVolumeUp:(id)sender{
     [self.communication sendVolumeUp:self.device.deviceIP port:[self.device.port integerValue]];

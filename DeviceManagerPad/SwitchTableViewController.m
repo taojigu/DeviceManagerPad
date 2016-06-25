@@ -45,7 +45,7 @@
     self.devicArray=[[NSMutableArray alloc]init];
     [self initSubviews];
     [self readDeviceDataFromCoreData];
-    //[self startRequestCellData];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,7 +107,16 @@
 
     RemoteDevice*device=[self.devicArray objectAtIndex:indexPath.row];
     cell.titleLabel.text=device.name;
-    cell.subTitleLabel.text=[NSString stringWithFormat:@"%@:%@",device.deviceIP,device.port];
+    if(device.powerOffCmd.length>0&&device.powerOnCmd.length>0)
+    {
+        cell.subTitleLabel.text =[NSString stringWithFormat:@"%@:%@ On:%@ Off:%@",device.deviceIP,device.port,device.powerOnCmd,device.powerOffCmd];
+    }
+    else
+    {
+        cell.subTitleLabel.text=[NSString stringWithFormat:@"%@:%@",device.deviceIP,device.port];
+        
+    }
+    
     
 
     return cell;
@@ -223,7 +232,7 @@
             }
             else
             {
-                [self.communication sendPowerOn:dvc.deviceIP port:dvc.port.integerValue];
+                [self.communication sendPowerOn:dvc];
             }
         }
         NSString*deviceTypeName=[CoreDateTypeUtility titleForDeviceType:self.deviceType];
@@ -241,7 +250,7 @@
         else
         {
 
-            [self.communication sendPowerOn:dvc.deviceIP port:dvc.port.integerValue];
+            [self.communication sendPowerOn:dvc];
            
         }
          [[CoreDataAdaptor instance] insertOperationLog:userName commandType:DeviceCommandTypePowerOn device:dvc dateTime:[NSDate date]];
@@ -261,7 +270,7 @@
             }
             else
             {
-                [self.communication sendPowerOff:dvc.deviceIP port:dvc.port.integerValue];
+                [self.communication sendPowerOff:dvc];
             }
         }
         NSString*deviceTypeName=[CoreDateTypeUtility titleForDeviceType:self.deviceType];
@@ -278,7 +287,7 @@
         }
         else
         {
-            [self.communication sendPowerOff:dvc.deviceIP port:dvc.port.integerValue];
+            [self.communication sendPowerOff:dvc];
         };
         
         [[CoreDataAdaptor instance] insertOperationLog:userName commandType:DeviceCommandTypePowerOff device:dvc dateTime:[NSDate date]];
@@ -343,34 +352,6 @@
         self.navigationItem.rightBarButtonItem = self.editButtonItem;
     }
 }
--(void)startRequestCellData{
-    
-    NSDictionary*paraDict=@{@"pk_uuid":@"gujitao"};
-    
-    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:nil parameters:paraDict constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        
-    } error:nil];
-    
-    
-    AFHTTPRequestOperation *opration = [[AFHTTPRequestOperation alloc]initWithRequest:request];
-    NSMutableSet*contentSet=[[NSMutableSet alloc]init];
-    [contentSet addObject:@"text/html"];
-    [contentSet addObject:@"application/json"];
-    opration.responseSerializer.acceptableContentTypes = contentSet;
-    
-    [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, NSData* responseObject) {
-        NSLog(@"Sucess:%@",responseObject);
-        //[self.cellDataFormatter parse:responseObject];
-        [self.tableView reloadData];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Failed:%@",[error localizedDescription]);
-        
-    }];
-    [opration start];
-    
-}
-
 -(void)sendCommnad2Device:(NSString*)cmdString device:(RemoteDevice*)device
 {
     

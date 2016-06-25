@@ -25,64 +25,52 @@
     return self;
 }
 
--(void)sendPowerOn:(NSString*)hostAddress port:(NSInteger)port{
+-(void)sendPowerOn:(RemoteDevice*)device{
     
     SwitchCommandControl*swithCommandCtrl=[[SwitchCommandControl alloc]initWithUdpSocket:self.udpSocket];
-    swithCommandCtrl.powerOnCommand=[[NSUserDefaults standardUserDefaults]objectForKey:ClusterPowerOnKey];
-    
+    swithCommandCtrl.repeatTime = [self clusterRepeatTime];
+
     NSArray*deviceArray=[[CoreDataAdaptor instance] deviceArray:DeviceTypeCluster];
     [deviceArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         RemoteDevice*device=(RemoteDevice*)obj;
-        [swithCommandCtrl sendPowerOn:device.deviceIP port:device.port.integerValue];
+        swithCommandCtrl.powerOnCommand = device.powerOnCmd;
+        [swithCommandCtrl sendPowerOn:device];
+        //[swithCommandCtrl sendPowerOn:device.deviceIP port:device.port.integerValue];
     }];
     
     [self powerOnAllProjector];
 
-    
-    swithCommandCtrl.powerOnCommand=[[NSUserDefaults standardUserDefaults]objectForKey:SoftwarePowerOnKey];
-    deviceArray=[[CoreDataAdaptor instance]deviceArray:DeviceTypeSoftware];
-    [deviceArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        RemoteDevice*device=(RemoteDevice*)obj;
-        [swithCommandCtrl sendPowerOn:device.deviceIP port:device.port.integerValue];
-    }];
-    
-    StereoCommandControl*steroCtrl=[[StereoCommandControl alloc]initWithUdpSocket:self.udpSocket];
-    deviceArray=[[CoreDataAdaptor instance]deviceArray:DeviceTypeStereo];
-    [deviceArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        RemoteDevice*device=(RemoteDevice*)obj;
-        [steroCtrl sendPowerOn:device.deviceIP port:device.port.integerValue];
 
-    }];
-    
 
 }
--(void)sendPowerOff:(NSString*)hostAddress port:(NSInteger)port{
+
+
+-(NSInteger)clusterRepeatTime
+{
+    NSInteger repTime = [[NSUserDefaults standardUserDefaults] integerForKey:ClusterRepeatTimeKey];
+    if(repTime<=0)
+    {
+        repTime =3;
+    }
+    
+    return repTime;
+    
+}
+-(void)sendPowerOff:(RemoteDevice*)device{
+    
     SwitchCommandControl*swithCommandCtrl=[[SwitchCommandControl alloc]initWithUdpSocket:self.udpSocket];
-    swithCommandCtrl.powerOffCommand=[[NSUserDefaults standardUserDefaults]objectForKey:ClusterPowerOffKey];
+    swithCommandCtrl.repeatTime = [self clusterRepeatTime];
     
     NSArray*deviceArray=[[CoreDataAdaptor instance] deviceArray:DeviceTypeCluster];
     [deviceArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         RemoteDevice*device=(RemoteDevice*)obj;
-        [swithCommandCtrl sendPowerOff:device.deviceIP port:device.port.integerValue];
+        swithCommandCtrl.powerOffCommand = device.powerOffCmd;
+        [swithCommandCtrl sendPowerOff:device];
+        //[swithCommandCtrl sendPowerOff:device.deviceIP port:device.port.integerValue];
     }];
     
     [self powerOffAllProjector];
 
-    
-    swithCommandCtrl.powerOffCommand=[[NSUserDefaults standardUserDefaults]objectForKey:SoftwarePowerOffKey];
-    deviceArray=[[CoreDataAdaptor instance]deviceArray:DeviceTypeSoftware];
-    [deviceArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        RemoteDevice*device=(RemoteDevice*)obj;
-        [swithCommandCtrl sendPowerOff:device.deviceIP port:device.port.integerValue];
-    }];
-    
-    StereoCommandControl*steroCtrl=[[StereoCommandControl alloc]initWithUdpSocket:self.udpSocket];
-    deviceArray=[[CoreDataAdaptor instance]deviceArray:DeviceTypeStereo];
-    [deviceArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        RemoteDevice*device=(RemoteDevice*)obj;
-        [steroCtrl sendPowerOff:device.deviceIP port:device.port.integerValue];
-        
-    }];
     
 }
 
@@ -99,7 +87,7 @@
         [tcpControl checkConnection];
         sleep(1);
         tcpControl.powerOnCommand = [[NSUserDefaults standardUserDefaults]objectForKey:ProjectionPowerOnKey];
-        tcpControl.quickShotCommand = [[NSUserDefaults standardUserDefaults]objectForKey:ProjectionPowerOnKey];
+        tcpControl.quickShotCommand = [[NSUserDefaults standardUserDefaults]objectForKey:ProjectionQuickShotKey];
         [tcpControl powerOnDevice:device];
         [tcpControl disconnect];
         

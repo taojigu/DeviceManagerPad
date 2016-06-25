@@ -14,6 +14,7 @@
 
 @property(nonatomic,strong)NSString*powerOnCommandKey;
 @property(nonatomic,strong)NSString*powerOffCommandKey;
+@property(nonatomic,strong)NSString*repeateTimeKey;
 
 
 @end

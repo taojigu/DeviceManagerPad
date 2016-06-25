@@ -14,7 +14,7 @@
 }
 
 -(instancetype)initWithUdpSocket:(GCDAsyncUdpSocket*)socket;
-
+@property(nonatomic,assign)NSInteger repeatTime;
 
 @property(nonatomic,strong)NSString*powerOnCommand;
 @property(nonatomic,strong)NSString*powerOffCommand;

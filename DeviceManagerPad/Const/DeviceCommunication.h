@@ -2,8 +2,10 @@
 
 //Cluster
 
-static NSString*const ClusterPowerOnKey=@"ClusterPowerONKey";
-static NSString*const ClusterPowerOffKey=@"CluserPowerOffKey";
+//static NSString*const ClusterPowerOnKey=@"ClusterPowerONKey";
+//static NSString*const ClusterPowerOffKey=@"CluserPowerOffKey";
+
+static NSString* const ClusterRepeatTimeKey = @"ClusterRepeatTimeKey";
 
 //Projection
 

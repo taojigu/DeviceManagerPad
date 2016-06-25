@@ -9,12 +9,14 @@
 #import "SwitchSocketSettingController.h"
 
 
+#define DefaultRepateTime 3
+
+
 @interface SwitchSocketSettingController (){
     
 }
 
-@property(nonatomic,strong)IBOutlet UITextField*tfPowerOnCommand;
-@property(nonatomic,strong)IBOutlet UITextField*tfPowerOffCommand;
+@property(nonatomic,strong)IBOutlet UITextField*tfRepeatTime;
 
 @end
 
@@ -22,8 +24,7 @@
     
 }
 
-@synthesize tfPowerOnCommand;
-@synthesize tfPowerOffCommand;
+
 
 @synthesize powerOnCommandKey;
 @synthesize powerOffCommandKey;
@@ -35,8 +36,17 @@
 }
 
 -(IBAction)saveCommands:(id)sender{
-    [[NSUserDefaults standardUserDefaults] setObject:self.tfPowerOnCommand.text forKey:self.powerOnCommandKey];
-    [[NSUserDefaults standardUserDefaults] setObject:self.tfPowerOffCommand.text forKey:self.powerOffCommandKey];
+
+    
+    NSUInteger repeatTime = [self.tfRepeatTime.text integerValue];
+    if (repeatTime<=0)
+    {
+        return;
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setInteger:repeatTime forKey:self.repeateTimeKey];
+    
+    
 }
 
 
@@ -44,8 +54,17 @@
 #pragma mark -- private messages
 -(void)refresh{
 
-    self.tfPowerOnCommand.text=[[NSUserDefaults standardUserDefaults]objectForKey:self.powerOnCommandKey];
-    self.tfPowerOffCommand.text=[[NSUserDefaults standardUserDefaults]objectForKey:self.powerOffCommandKey];
+    //self.tfPowerOnCommand.text=[[NSUserDefaults standardUserDefaults]objectForKey:self.powerOnCommandKey];
+    //self.tfPowerOffCommand.text=[[NSUserDefaults standardUserDefaults]objectForKey:self.powerOffCommandKey];
+    
+    NSInteger repeatTime = [[NSUserDefaults standardUserDefaults] integerForKey:self.repeateTimeKey];
+    if (repeatTime==0)
+    {
+        repeatTime = DefaultRepateTime;
+        [[NSUserDefaults standardUserDefaults] setInteger:repeatTime forKey:self.repeateTimeKey];
+    }
+    
+    self.tfRepeatTime.text = [NSString stringWithFormat:@"%li",repeatTime];
     
 }
 

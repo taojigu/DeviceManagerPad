@@ -51,14 +51,14 @@
 
 -(IBAction)powerOn:(id)sender{
     
-    [self.communication sendPowerOn:nil port:0];
+    [self.communication sendPowerOn:nil];
     
 
     
 
 }
 -(IBAction)powerOff:(id)sender{
-    [self.communication sendPowerOff:nil port:0];
+    [self.communication sendPowerOff:nil];
 }
 
 /*

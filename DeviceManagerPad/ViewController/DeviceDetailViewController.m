@@ -20,6 +20,8 @@
 @property(nonatomic,strong)IBOutlet UITextField*deviceNameTextField;
 @property(nonatomic,strong) IBOutlet UITextField*portTextField;
 @property(nonatomic,strong) IBOutlet UITextField*ipTextField;
+@property(nonatomic,strong) IBOutlet UITextField* powerOnTextField;
+@property(nonatomic,strong) IBOutlet UITextField* powerOffTextField;
 
 @end
 
@@ -33,6 +35,14 @@
 @synthesize deviceNameTextField;
 @synthesize portTextField;
 @synthesize ipTextField;
+
+
+-(instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    self.isCustomCommand = YES;
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -80,12 +90,22 @@
     self.ipTextField.text=self.remoteDevice.deviceIP;
     self.portTextField.text=[NSString stringWithFormat:@"%@",self.remoteDevice.port];
     self.title=[CoreDateTypeUtility titleForDeviceType:self.deviceType];
+    self.powerOnTextField.text = self.remoteDevice.powerOnCmd;
+    self.powerOffTextField.text = self.remoteDevice.powerOffCmd;
+    
+    if (!self.isCustomCommand)
+    {
+        self.powerOnTextField.hidden = YES;
+        self.powerOffTextField.hidden = YES;
+    }
 }
 
 -(void)finishEdit{
     self.remoteDevice.type=[NSNumber numberWithInteger:self.deviceType];
     self.remoteDevice.name=self.deviceNameTextField.text;
     self.remoteDevice.deviceIP=self.ipTextField.text;
+    self.remoteDevice.powerOnCmd = self.powerOnTextField.text;
+    self.remoteDevice.powerOffCmd = self.powerOffTextField.text;
     NSInteger portValue = [self.portTextField.text integerValue];
     
 

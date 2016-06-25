@@ -2,11 +2,15 @@
 
 #import "GCDAsyncUdpSocket.h"
 #import "GCDAsyncSocket.h"
+@class RemoteDevice;
 @protocol PCommunicaion <NSObject>
 
 @required
--(void)sendPowerOn:(NSString*)hostAddress port:(NSInteger)port;
--(void)sendPowerOff:(NSString*)hostAddress port:(NSInteger)port;
+//-(void)sendPowerOn:(NSString*)hostAddress port:(NSInteger)port;
+//-(void)sendPowerOff:(NSString*)hostAddress port:(NSInteger)port;
+
+-(void)sendPowerOn:(RemoteDevice*)device;
+-(void)sendPowerOff:(RemoteDevice*)device;
 
 @optional
 -(void)sendVolumeUp:(NSString*)hostAddress port:(NSInteger)port;

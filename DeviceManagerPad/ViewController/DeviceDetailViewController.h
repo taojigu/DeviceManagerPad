@@ -36,4 +36,7 @@ typedef NS_ENUM(NSInteger, DetailType){
 @property(nonatomic,assign)id<DeviceDetailViewControllerDelegate>delegate;
 @property(nonatomic,assign)DetailType detailType;
 @property(nonatomic,assign)DeviceType deviceType;
+
+@property(nonatomic,assign)BOOL isCustomCommand;
+
 @end
